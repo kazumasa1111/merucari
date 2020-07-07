@@ -73,5 +73,6 @@ group :production do
   gem 'unicorn'
 end
 
-# test
+gem 'haml-rails'
+
 
