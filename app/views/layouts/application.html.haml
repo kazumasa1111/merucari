@@ -8,4 +8,15 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header.header
+      = render partial: 'layouts/header'
+
     = yield
+
+    .footer
+      = render partial: 'layouts/footer'
+
+    -# %a{ href: "#"}
+    -# .purchaseBtn
+    -#   %span.purchaseBtn__text 出品する
+    -#   %img.purchaseBtn__icon{ src: "assets/material/icon/icon_camera.png"}/
