@@ -74,13 +74,6 @@ header {
           display: flex;
           line-height: 38px;
           padding: 0 0 0 16px;
-          &__item--first {
-            text-decoration: none;
-            padding: 0;
-            // >a {
-            //   background-image: url(icon_category.svg);
-            // }
-          }
           a {
             color: #333;
             text-decoration: none;
@@ -89,9 +82,28 @@ header {
             background-repeat: no-repeat;
             background-size: 18px;
             padding-right: 30px;
+            &:hover {
+              color: #ffb340;
+            }
           }
-          &:nth-child(2)>a {
-            background-image: url(icon_brand.svg);
+          .tree {
+            display: block;
+            z-index: 2;
+            position: absolute;
+            background-color: #fff;
+            width: 240px;
+            top: 30px;
+            left: auto;
+            .categoryTree {
+              /* display: inline-block; */
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              /* background-color: yellow; */
+              padding-left: 0%;
+            }
+
           }
           .brandsPulldown {
             position: absolute;
@@ -100,6 +112,9 @@ header {
             .displayNone {
               display: none;
             }
+          }
+          .displayNone {
+            display: none;
           }
         }
       }
@@ -155,21 +170,10 @@ h1 {
 }
 
 
-
-// a:-webkit-any-link {
-//   color: -webkit-link;
-//   cursor: pointer;
-//   text-decoration: underline;
-// }
-
 img {
   width: 100%;
   vertical-align: bottom;
 }
-
-// fieldset, img {
-//   border: 0;
-// }
 
 
 input, textarea, select {
