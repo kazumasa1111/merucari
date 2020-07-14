@@ -95,12 +95,10 @@ header {
             top: 30px;
             left: auto;
             .categoryTree {
-              /* display: inline-block; */
               background-color: #fff;
               display: flex;
               flex-direction: column;
               position: relative;
-              /* background-color: yellow; */
               padding-left: 0%;
             }
 
@@ -138,22 +136,6 @@ header {
   }
 }
 
-
-
-
-
-
-
-
-
-/* div {
-  display: block;
-} */
-
-
-
-
-
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   font-weight: normal;
@@ -183,7 +165,6 @@ input, textarea, select {
 }
 
 input {
-  /* -webkit-writing-mode: horizontal-tb !important; */
   text-rendering: auto;
   color: -internal-light-dark-color(black, white);
   letter-spacing: normal;
@@ -193,23 +174,15 @@ input {
   text-shadow: none;
   display: inline-block;
   text-align: start;
-  -webkit-appearance: textfield;
   background-color: -internal-light-dark-color(rgb(255, 255, 255), rgb(59, 59, 59));
-  -webkit-rtl-ordering: logical;
-  cursor: text;
   margin: 0em;
-  font: 400 13.3333px Arial;
   padding: 1px 2px;
   border-width: 2px;
-  border-style: inset;
   border-color: -internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));
-  border-image: initial;
 }
 
 
 button {
-  -webkit-appearance: button;
-  /* -webkit-writing-mode: horizontal-tb !important; */
   text-rendering: auto;
   color: -internal-light-dark-color(buttontext, rgb(170, 170, 170));
   letter-spacing: normal;
@@ -220,11 +193,9 @@ button {
   display: inline-block;
   text-align: center;
   align-items: flex-start;
-  cursor: default;
   background-color: -internal-light-dark-color(rgb(239, 239, 239), rgb(74, 74, 74));
   box-sizing: border-box;
   margin: 0em;
-  font: 400 13.3333px Arial;
   padding: 1px 6px;
   border-width: 2px;
   border-style: outset;

@@ -25,12 +25,12 @@
     &__btn {
       display: flex;
       .apple {
-        width: 180px;
+        width: 150px;
+        margin: 13px;
       }
 
       .google {
         width: 180px;
-        /* height: 150px; */
       }
     }
   }
