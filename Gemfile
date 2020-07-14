@@ -74,11 +74,7 @@ group :production do
 end
 
 gem 'haml-rails'
-<<<<<<< HEAD
-gem 'font-awesome-sass'
-=======
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
->>>>>>> master
-
+gem 'font-awesome-sass'
