@@ -1,15 +1,16 @@
 .header__inside
   .header__inside__main
     %h1.icon
-      %a{ href: '/'}
-        %img{ src: "assets/material/logo/logo.png" }
+      -# = link_to "/" do
+      -#   %img{ src: "assets/material/logo/logo.png" }
+      = link_to image_tag('material/logo/logo.png'), '#'
     .header__inside__main__search
       = form_with url: '#' do |form|
         = form.text_field :searchInput, placeholder: "キーワードから探す", class: "searchBox--input"
         -# = form.submit
         %button{ type: "submit"} 
           .searchBox__icon
-            %img{ src: "assets/material/icon/icon-search 1.png"}
+            = image_tag('material/icon/icon-search 1.png')
     %ul.resultLists
   .header__inside__nav
     %ul.leftPart
@@ -21,41 +22,41 @@
           function closeMenu() {           
             target.classList.add('displayNone')
           }
-        %a#catBtn{href: "#", onmouseout: "closeMenu()", onmouseover: "openMenu()"} カテゴリー
+        = link_to "カテゴリー", "#", id: "catBtn", onmouseout: "closeMenu()", onmouseover: "openMenu()"
         .tree.displayNone#target
           %ul.categoryTree{onmouseout: "closeMenu()", onmouseover: "openMenu()"}
             %li.categoryTree--item
-              %a#1{href: "#"} レディース
+              = link_to "レディース", "#", id: 1
             %li.categoryTree--item
-              %a#2{href: "#"} メンズ
+              = link_to "メンズ", "#", id: 2
             %li.categoryTree--item
-              %a#3{href: "#"} ベビー・キッズ
+              = link_to "ベビー・キッズ", "#", id: 3
             %li.categoryTree--item
-              %a#4{href: "#"} インテリア・住まい・小物
+              = link_to "インテリア・住まい・小物", "#", id: 4
             %li.categoryTree--item
-              %a#5{href: "#"} 本・音楽・ゲーム
+              = link_to "楽・ゲーム", "#", id: 5
             %li.categoryTree--item
-              %a#6{href: "#"} おもちゃ・ホビー・グッズ
+              = link_to "おもちゃ・ホビー・グッズ", "#", id: 6
             %li.categoryTree--item
-              %a#7{href: "#"} コスメ・香水・美容
+              = link_to "コスメ・香水・美容", "#", id: 7
             %li.categoryTree--item
-              %a#8{href: "#"} 家電・スマホ・カメラ
+              = link_to "家電・スマホ・カメラ", "#", id: 8
             %li.categoryTree--item
-              %a#9{href: "#"} スポーツ・レジャー
+              = link_to "スポーツ・レジャー", "#", id: 9
             %li.categoryTree--item
-              %a#10{href: "#"} ハンドメイド
+              = link_to "ハンドメイド", "#", id: 10
             %li.categoryTree--item
-              %a#11{href: "#"} チケット
+              = link_to "チケット", "#", id: 11
             %li.categoryTree--item
-              %a#12{href: "#"} 自動車・オートバイ
+              = link_to "自動車・オートバイ", "#", id: 12
             %li.categoryTree--item
-              %a#13{href: "#"} その他
+              = link_to "その他", "#", id: 13
 
       %li.leftPart__item
-        %a#brandBtn{href: "#"} ブランド
+        = link_to "ブランド", "#", id: "brandBtn"
         %ul.brandsPulldown.displayNone
     %ul.rightPart
       %li.rightPart__item.rightPart__item--login
-        %a{href: "#"} ログイン
+        = link_to "ログイン", "#"
       %li.rightPart__item.rightPart__item--new
-        %a{href: "#"} 新規会員登録
+        = link_to "新規会員登録", "#"

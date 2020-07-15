@@ -7,7 +7,5 @@
     %br/
     ほしかったあの商品に出会えるかもしれません。
   .thirdVisual__inner__btn
-    %a{ href: "#"}
-      %img.apple{ src: "assets/material/img/apple_btn.png"}/
-    %a{ href: "#"}
-      %img.google{ src: "assets/material/img/google-play-badge.png"}/
+    = link_to image_tag('material/img/apple_btn.png'), '#', class:'apple'
+    = link_to image_tag('material/img/google-play-badge.png'), '#', class:'google'
