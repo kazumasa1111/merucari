@@ -16,7 +16,6 @@
 - has_one :address
 - has_one :credit
 - has_many :exhibition_histories
-- has_many :products, through: :products_users_comments
 - has_many :products
 - has_many :purchase_histories
 - has_many :buy_products
@@ -34,7 +33,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :area
+- belongs_to_active_hash :area
 
 
 ## areasテーブル
@@ -89,18 +88,6 @@
 - belongs_to :user
 - has_many :products
 
-## product_commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_ID|integer|null:false, foreign_key: true|
-|comments|string|null: false|
-|created_at|datetime|null: false|
-|updated_at|datetime|null: false|
-
-
-### Association
-- belongs_to :user
-- belongs_to :product
 
 ## productsテーブル
 |Column|Type|Options|
@@ -115,7 +102,6 @@
 |area_ID|integer|null: false|
 |days_until_shipping|string|null: false|
 |price|string|null: false|
-|comment|string|null:false, foreign_key: true|
 |image_ID|string|null:false,foreign_key:true|
 
 
@@ -123,10 +109,9 @@
 - belongs_to :buy_product
 - belongs_to :categoriy
 - belongs_to :brand
-- belongs_to :area
+- belongs_to_active_hash :area
 - belongs_to :exhibition_history
 - belongs_to :user
-- has_many :users, through: :products_users_comments
 - has_many :images
 
 
@@ -167,23 +152,12 @@
 ### Association
 - has_many :products
 
-## products_users_commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_comment|string|null:false, foreign_key: true|
-|products_comment|string|null:false,foreign_key: true|
-|created_at|string|null: false|
-|updated_at|string|null: false|
-
-
-### Association
-- belongs_to :user
-- belongs_to :product
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false,foreign_key: true|
+|image|string|null: false|
+|product_ID|integer|null: false,foreign_key: true|
 
 
 ### Association
