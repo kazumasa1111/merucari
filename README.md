@@ -6,18 +6,17 @@
 |name|string|null:false|
 |birthday|date|null:false|
 |password|string|null:false|
+|email|string|null: false|
 |tel|string|unique: true|
-|address_ID|integer|foreign_key: true|
-|credit_ID|integer|foreign_key: true|
 |nickname|string|null: false|
 |icon|string||
 |self_introduction|string||
 
 ### Association
-- belongs_to :address
-- belongs_to :credit
+- has_one :address
+- has_one :credit
 - has_many :exhibition_histories
-- has_many :product, through :products_users_comments
+- has_many :products, through: :products_users_comments
 - has_many :products
 - has_many :purchase_histories
 - has_many :buy_products
@@ -25,9 +24,9 @@
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_ID|integer|foreign_key: true|
+|user_ID|integer|null:false, foreign_key: true|
 |postal_code|string|null: false|
-|area_ID|integer|foreign_key: true|
+|area_ID|integer|null:false, foreign_key: true|
 |municipalities|string|null: false|
 |house_number|string|null: false|
 |building|string||
@@ -53,7 +52,7 @@
 ## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|foreign_key: true|
+|user_id|integer|null:false, foreign_key: true|
 |card_number|integer|null: false|
 |expiration_date_month|integer|null: false|
 |expiration_date_day|integer|null: false|
@@ -67,8 +66,8 @@
 ## purchase_historiesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|buy_product_ID|integer|foreign_key: true|
-|user_ID|integer|foreign_key: true|
+|buy_product_ID|integer|null:false,foreign_key: true|
+|user_ID|integer|null:false, foreign_key: true|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
 
@@ -80,8 +79,8 @@
 ## exhibition_historiesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_ID|integer|foreign_key: true|
-|user_ID|integer|foreign_key: true|
+|product_ID|integer|null:false, foreign_key: true|
+|user_ID|integer|null:false, foreign_key: true|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
 
@@ -93,7 +92,7 @@
 ## product_commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_ID|integer|foreign_key: true|
+|user_ID|integer|null:false, foreign_key: true|
 |comments|string|null: false|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
@@ -106,18 +105,18 @@
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_ID|integer|foreign_key: true|
-|category_ID|integer|foreign_key: true|
-|brand_ID|integer|foreign_key: true|
-|image|string|null: false|
-|product_name|string|null: false|
+|user_ID|integer|null:false, foreign_key: true|
+|category_ID|integer|null:false,foreign_key: true|
+|brand_ID|integer|null:false, foreign_key: true|
+|name|string|null: false|
 |description_of_item|text|null:false|
 |commodity_condition|string|null: false|
 |shipping_charges|string|null: false|
 |area_ID|integer|null: false|
 |days_until_shipping|string|null: false|
 |price|string|null: false|
-|comment|string|foreign_key: true|
+|comment|string|null:false, foreign_key: true|
+|image_ID|string|null:false,foreign_key:true|
 
 
 ### Association
@@ -128,15 +127,16 @@
 - belongs_to :exhibition_history
 - belongs_to :user
 - has_many :users, through: :products_users_comments
+- has_many :images
 
 
 ## buy_productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_ID|integer|foreign_key: true|
-|user_ID|integer|foreign_key: true|
-|credit_ID|integer|foreign_key: true|
-|address_ID|integer|foreign_key: true|
+|product_ID|integer|null:false, foreign_key: true|
+|user_ID|integer|null:false, foreign_key: true|
+|credit_ID|integer|null:false, foreign_key: true|
+|address_ID|integer|null:false, foreign_key: true|
 
 
 
@@ -151,16 +151,17 @@
 ## categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category_name|string|null: false|
+|name|string|null: false|
 
 
 ### Association
 - has_many :products
+- has_ancestry
 
 ## brandテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|null: false|
+|name|string|null: false|
 
 
 ### Association
@@ -169,12 +170,21 @@
 ## products_users_commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_comment|string|foreign_key: true|
-|products_comment|string|foreign_key: true|
+|user_comment|string|null:false, foreign_key: true|
+|products_comment|string|null:false,foreign_key: true|
 |created_at|string|null: false|
 |updated_at|string|null: false|
 
 
 ### Association
 - belongs_to :user
+- belongs_to :product
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false,foreign_key: true|
+
+
+### Association
 - belongs_to :product
