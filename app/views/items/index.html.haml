@@ -1,11 +1,12 @@
 .main
-  %section.firstVisual
+  %section.firstVisual{style: "background-image:url(#{asset_path "material/pict/bg-mainVisual-pict_pc.jpg"})"}
+
     = render partial: 'firstVisual'
 
   %section.secondVisual
     = render partial: 'secondVisual'
 
-  %section.thirdVisual
+  %section.thirdVisual{style: "background-image:url(#{asset_path "material/pict/bg-topMiddleDl-pict.jpg"})"}
     = render partial: 'thirdVisual'
     
   %section.forthVisual
@@ -17,10 +18,10 @@
   %section.sixthVisual
     = render partial: 'sixthVisual'
 
-%aside.seventhVisual
+%aside.seventhVisual{style: "background-image:url(#{asset_path "material/pict/bg-appBanner-pict.jpg"})"}
   = render partial: 'seventhVisual'
   
 %a{ href: "#"}
 .purchaseBtn
   %span.purchaseBtn__text 出品する
-  %img.purchaseBtn__icon{ src: "assets/material/icon/icon_camera.png"}/
+  = image_tag asset_path('material/icon/icon_camera.png'), class: "purchaseBtn__icon"

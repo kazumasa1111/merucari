@@ -46,7 +46,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
-
 end
 
 group :development do
@@ -71,6 +70,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'unicorn'
+  gem 'active_hash'
+  gem 'payjp'
+  gem 'ancestry'
 end
 
 gem 'haml-rails'
