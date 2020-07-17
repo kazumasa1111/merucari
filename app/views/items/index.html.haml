@@ -1,11 +1,12 @@
 .main
-  %section.firstVisual
+  %section.firstVisual{style: "background-image:url(#{asset_path "material/pict/bg-mainVisual-pict_pc.jpg"})"}
+
     = render partial: 'firstVisual'
 
   %section.secondVisual
     = render partial: 'secondVisual'
 
-  %section.thirdVisual
+  %section.thirdVisual{style: "background-image:url(#{asset_path "material/pict/bg-topMiddleDl-pict.jpg"})"}
     = render partial: 'thirdVisual'
     
   %section.forthVisual
@@ -17,7 +18,7 @@
   %section.sixthVisual
     = render partial: 'sixthVisual'
 
-%aside.seventhVisual
+%aside.seventhVisual{style: "background-image:url(#{asset_path "material/pict/bg-appBanner-pict.jpg"})"}
   = render partial: 'seventhVisual'
   
 %a{ href: "#"}
