@@ -75,5 +75,8 @@ group :production do
   gem 'ancestry'
 end
 
-# test
-
+gem 'haml-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'font-awesome-sass'

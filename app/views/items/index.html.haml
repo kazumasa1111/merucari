@@ -1,0 +1,27 @@
+.main
+  %section.firstVisual{style: "background-image:url(#{asset_path "material/pict/bg-mainVisual-pict_pc.jpg"})"}
+
+    = render partial: 'firstVisual'
+
+  %section.secondVisual
+    = render partial: 'secondVisual'
+
+  %section.thirdVisual{style: "background-image:url(#{asset_path "material/pict/bg-topMiddleDl-pict.jpg"})"}
+    = render partial: 'thirdVisual'
+    
+  %section.forthVisual
+    = render partial: 'forthVisual'
+
+  %section.fifthVisual
+    = render partial: 'fifthVisual'
+  
+  %section.sixthVisual
+    = render partial: 'sixthVisual'
+
+%aside.seventhVisual{style: "background-image:url(#{asset_path "material/pict/bg-appBanner-pict.jpg"})"}
+  = render partial: 'seventhVisual'
+  
+%a{ href: "#"}
+.purchaseBtn
+  %span.purchaseBtn__text 出品する
+  = image_tag asset_path('material/icon/icon_camera.png'), class: "purchaseBtn__icon"
