@@ -20,46 +20,31 @@
 - has_many :purchase_histories
 - has_many :buy_products
 
+
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_ID|integer|null:false, foreign_key: true|
 |postal_code|string|null: false|
-|area_ID|integer|null:false, foreign_key: true|
+|prefecture_id(acitve_hash)|integer|null: false|
 |municipalities|string|null: false|
 |house_number|string|null: false|
 |building|string||
 
-
 ### Association
 - belongs_to :user
-- belongs_to_active_hash :area
-
-
-## areasテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecturese|string|null: false|
-
-
-### Association
-- has_many :addresses
-- has_many :products
-
 
 
 ## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false, foreign_key: true|
-|card_number|integer|null: false|
-|expiration_date_month|integer|null: false|
-|expiration_date_day|integer|null: false|
-|security_code|integer|null: false|
+|user_ID|integer|null:false, foreign_key: true|
+|customer_ID(pay.jp)|string|null: false|
+|card_ID(pay.jp)|string|null: false|
 
 ### Association
 - belongs_to :user
-- belongs_to :buy_products
+- belongs_to :buy_product
 
 
 ## purchase_historiesテーブル
@@ -70,10 +55,10 @@
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
 
-
 ### Association
 - belongs_to :user
 - has_many :buy_products
+
 
 ## exhibition_historiesテーブル
 |Column|Type|Options|
@@ -82,7 +67,6 @@
 |user_ID|integer|null:false, foreign_key: true|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
-
 
 ### Association
 - belongs_to :user
@@ -95,21 +79,19 @@
 |user_ID|integer|null:false, foreign_key: true|
 |category_ID|integer|null:false,foreign_key: true|
 |brand_ID|integer|null:false, foreign_key: true|
+|prefecture_id(acitve_hash)|integer|null: false|
 |name|string|null: false|
 |description_of_item|text|null:false|
 |commodity_condition|string|null: false|
 |shipping_charges|string|null: false|
-|area_ID|integer|null: false|
 |days_until_shipping|string|null: false|
 |price|string|null: false|
 |image_ID|string|null:false,foreign_key:true|
 
-
 ### Association
 - belongs_to :buy_product
-- belongs_to :categoriy
+- belongs_to :category
 - belongs_to :brand
-- belongs_to_active_hash :area
 - belongs_to :exhibition_history
 - belongs_to :user
 - has_many :images
@@ -123,14 +105,11 @@
 |credit_ID|integer|null:false, foreign_key: true|
 |address_ID|integer|null:false, foreign_key: true|
 
-
-
 ### Association
 - belongs_to :product
 - belongs_to :user
 - belongs_to :credit
-- belongs_to :purchase_histories
-
+- belongs_to :purchase_history
 
 
 ## categoryテーブル
@@ -138,16 +117,15 @@
 |------|----|-------|
 |name|string|null: false|
 
-
 ### Association
 - has_many :products
 - has_ancestry
+
 
 ## brandテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-
 
 ### Association
 - has_many :products
