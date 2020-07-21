@@ -19,7 +19,11 @@
 
     &--name{
       display: flex;
-    
+    }
+    &--name-label{
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4em;
     }
     &--content{
       margin-top: 16px;
@@ -54,6 +58,29 @@
         width: 100%;
       }
     }
+    &--name-attention{
+      margin-left: 8px;
+      height: 20px;
+      font-size: 12px;
+      padding: 0 4px;
+      background-color: #3CCACE;;
+      color:#fff;
+    }
+    &--name-any{
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 12px;
+      padding: 0px 4px;
+      background-color: rgb(191, 191, 191);
+      color: rgb(255, 255, 255);
+      line-height: 1.7em;
+      border-radius: 2px;
+    }
+    &--input-camera{
+      height: 24px;
+      margin-bottom: 8px;
+      width: 24px;
+    }
   }
 
 
@@ -62,6 +89,15 @@
 
     &--discription{
       margin-top: 32px;
+    }
+    &--name-input{
+      margin-top: 16px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      height: 48px;
+      padding: 0 16px;
     }
   }
   &__detail{
@@ -109,6 +145,21 @@
         font-size: 14px;
       }
     }
+    &--input-area{
+      align-items: center;
+      display: inline-flex;
+      max-width: 285px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: inherit;
+      height: 48px;
+      margin: 0;
+      outline: none;
+      padding: 0 16px;
+      text-align: right;
+    }
   }
   &__btn{
     width: 360px;
@@ -150,50 +201,11 @@
 }
 
 
-.putitems__image--name-label{
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4em;
-}
-.putitems__image--name-attention{
-  margin-left: 8px;
-  height: 20px;
-  font-size: 12px;
-  padding: 0 4px;
-  background-color: #3CCACE;;
-  color:#fff;
-}
-.putitems__image--name-any{
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 12px;
-  padding: 0px 4px;
-  background-color: rgb(191, 191, 191);
-  color: rgb(255, 255, 255);
-  line-height: 1.7em;
-  border-radius: 2px;
-}
 
 .putitems-image{
   display: none;
   box-sizing: border-box;
 }
-.putitems__image--input-camera{
-  height: 24px;
-  margin-bottom: 8px;
-  width: 24px;
-}
-
-.putitems__contens--name-input{
-  margin-top: 16px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  height: 48px;
-  padding: 0 16px;
-}
-
 .items-discription{
   margin-top: 16px;
   width: 100%;
@@ -249,21 +261,6 @@
   width: 100%;
 }
 
-.putitems__price--input-area{
-  align-items: center;
-    display: inline-flex;
-    max-width: 285px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height: 48px;
-    margin: 0;
-    outline: none;
-    padding: 0 16px;
-    text-align: right;
-}
 .price-label{
   margin-right: auto;
   white-space: nowrap;
