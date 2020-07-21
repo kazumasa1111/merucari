@@ -1,0 +1,279 @@
+.putitems__boder{
+  border-top-width: 1px;
+  border-top-color: #efefef;
+  border-left: 0 solid #efefef;
+  border-bottom: 0 solid #efefef;
+  border-right: 0 solid #efefef;
+  border-top-style: solid;
+}
+
+.putitems{
+  max-width: 700px;
+  height: 2146px;
+  margin: 0px auto;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+
+  &__image{
+    padding: 40px;
+
+    &--name{
+      display: flex;
+    }
+    &--name-label{
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4em;
+    }
+    &--content{
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.4em;
+    }
+    &--input{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 8px 4px 0px ;
+      padding: 0px 4px;
+      height: 150px;
+      margin-top: 16px;
+      cursor: pointer;
+      align-content: center;
+      -webkit-box-align: center;
+      background-color: rgb(245, 245, 245);
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      justify-content: center;
+      position: relative;
+      border-width: 1px;
+      border-style: dashed;
+      border-color: rgb(204, 204, 204);
+      border-image: initial;
+      transition: all 0.5s ease-out 0s;
+      
+      p{
+        font-size: 12px;
+        line-height: 1.4em;
+        text-align: center;
+        width: 100%;
+      }
+    }
+    &--name-attention{
+      margin-left: 8px;
+      height: 20px;
+      font-size: 12px;
+      padding: 0 4px;
+      background-color: #3CCACE;;
+      color:#fff;
+    }
+    &--name-any{
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 12px;
+      padding: 0px 4px;
+      background-color: rgb(191, 191, 191);
+      color: rgb(255, 255, 255);
+      line-height: 1.7em;
+      border-radius: 2px;
+    }
+    &--input-camera{
+      height: 24px;
+      margin-bottom: 8px;
+      width: 24px;
+    }
+  }
+
+
+  &__contents{
+    padding: 40px;
+
+    &--discription{
+      margin-top: 32px;
+    }
+    &--name-input{
+      margin-top: 16px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      height: 48px;
+      padding: 0 16px;
+    }
+  }
+  &__detail{
+    padding: 40px;
+    &--category{
+      margin-top: 16px;
+      cursor: pointer;
+    }
+    &--brand{
+      margin-top: 32px;
+    }
+    &--status{
+      margin-top: 32px;
+    }
+  }
+  &__shipping{
+    padding: 40px;
+    &--container{
+      margin-top: 32px;
+    }
+  }
+  &__price{
+    padding: 40px 40px 0px;
+    &--input{
+      margin-bottom: 40px;
+      display: flex;
+      height: 46px;
+      align-items: center;
+      p{
+        display: block;
+        font-size: 14px;
+        margin-right: 10px;
+      }
+    }
+    &--fee{
+      margin-right: auto;
+      white-space: nowrap;
+      padding: 12px 0px;
+      -webkit-box-align: center;
+      align-items: center;
+      box-sizing: content-box;
+      display: flex;
+      height: 46px;
+      p{
+        font-size: 14px;
+      }
+    }
+    &--input-area{
+      align-items: center;
+      display: inline-flex;
+      max-width: 285px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: inherit;
+      height: 48px;
+      margin: 0;
+      outline: none;
+      padding: 0 16px;
+      text-align: right;
+    }
+  }
+  &__btn{
+    width: 360px;
+    margin: 0px auto 32px;
+    &--put{
+      background-color: #3CCACE;;
+      color: #fff;
+      width: 100%;
+      font-size: 17px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 4px;
+      border: 1px solid;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    &--save{
+      width: 100px;
+      margin-top: 24px;
+      background-color: #ccc;
+      border-color: transparent;
+      color: #222;
+      width: 100%;
+      font-size: 17px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+  &__attention{
+    margin: 0px 40px 64px ;
+    p{
+      font-size: 12px;
+      line-height: 1.4em;
+    }
+  }
+}
+
+
+
+.putitems-image{
+  display: none;
+  box-sizing: border-box;
+}
+.items-discription{
+  margin-top: 16px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 13px 16px;
+  vertical-align: middle;
+}
+
+.items-detail {
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-bottom: 24px;
+}
+
+.category-select{
+  margin-top: 16px;
+  position: relative;
+  
+  p {
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: 5px;
+    margin: auto;
+    font-size: 24px;
+  }
+}
+.items-select{
+  -webkit-appearance: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(34, 34, 34);
+  font-size: 16px;
+  height: 48px;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.brand-input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.price-label{
+  margin-right: auto;
+  white-space: nowrap;
+}
+.back-btn{
+  display: block;
+  margin-top: 24px;
+  color: #0095ee;
+  width: 100%;
+  height: 20px;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+}
