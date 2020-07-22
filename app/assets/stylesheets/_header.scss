@@ -158,28 +158,22 @@ img {
 }
 
 
-input, textarea, select {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-input {
-  text-rendering: auto;
-  color: -internal-light-dark-color(black, white);
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  background-color: -internal-light-dark-color(rgb(255, 255, 255), rgb(59, 59, 59));
-  margin: 0em;
-  padding: 1px 2px;
-  border-width: 2px;
-  border-color: -internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));
-}
+// input {
+//   text-rendering: auto;
+//   color: -internal-light-dark-color(black, white);
+//   letter-spacing: normal;
+//   word-spacing: normal;
+//   text-transform: none;
+//   text-indent: 0px;
+//   text-shadow: none;
+//   display: inline-block;
+//   text-align: start;
+//   background-color: -internal-light-dark-color(rgb(255, 255, 255), rgb(59, 59, 59));
+//   margin: 0em;
+//   padding: 1px 2px;
+//   border-width: 2px;
+//   border-color: -internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));
+// }
 
 
 button {

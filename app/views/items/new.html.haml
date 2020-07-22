@@ -91,7 +91,7 @@
             %p.putitems__image--name-attention
               必須
           .category-select
-            = f.select :state, [],{include_blank: "選択してください"},  class: "items-select"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{include_blank: "選択してください"},  class: "items-select"
             %p 🔻
 
         .putitems__shipping--container
