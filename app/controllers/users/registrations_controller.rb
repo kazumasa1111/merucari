@@ -5,6 +5,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_address
   end
 
-  def new
-  end
 end
