@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def new_address
+  def nnew_address
   end
 
   def create_address
