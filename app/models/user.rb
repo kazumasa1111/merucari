@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one :address, dependent: :delete
+  before_save { email.downcase! }
 
   with_options presence: true do
     validates :nickname
@@ -10,6 +12,7 @@ class User < ApplicationRecord
     validates :email,    uniqueness: {case_sensitive: false},
                          format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
     validates :password, length: {minimum: 7}
+    validates :tel
 
     with_options format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/} do
       validates :first_name
