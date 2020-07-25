@@ -4,11 +4,5 @@ class TestProductsController < ApplicationController
 
   def create
   end
-<<<<<<< Updated upstream
-=======
-
-  def edit
-  end
->>>>>>> Stashed changes
   
 end
