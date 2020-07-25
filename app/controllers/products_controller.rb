@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.new
     @product.build_brand
-    @products = Category.order("id ASC").limit(13)
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
 
@@ -18,6 +18,15 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
     end
   end
 

@@ -51,7 +51,7 @@
             %p.putitems__image--name-attention
               必須
           .category-select
-            = f.select :category, [["レディース","レディース"],["メンズ","メンズ"],["ベビーキッズ","ベビーキッズ"],["インテリア・住まい・小物","インテリア・住まい・小物"],["本・音楽・ゲーム","本・音楽・ゲーム"],["おもちゃ・ホビー・グッズ","おもちゃ・ホビー・グッズ"],["コスメ・香水・美容","レコスメ・香水・美容"],["家電・スマホ・カメラ","家電・スマホ・カメラ"],["スポーツ・レジャー","スポーツ・レジャー"],["ハンドメイド","ハンドメイド"],["チケット","チケット"],["自動車・オートバイ","自動車・オートバイ"],["その他","その他"]],{include_blank: "選択してください"},  class: "items-select"
+            = f.collection_select :category_ids,@parents,:id, :name,{prompt: "選択してください"}  , class: "items-select"
             %p 🔻
         .putitems__detail--brand
           .putitems__image--name
