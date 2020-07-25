@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   get 'test_products/show'
+<<<<<<< Updated upstream
   get 'test_products/create'
   resources :items
+=======
+  get 'test_products/edit'
+>>>>>>> Stashed changes
 end
