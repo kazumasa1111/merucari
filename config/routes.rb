@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   get 'test_products/show'
-  resources :items
+  get 'test_products/create'
+
 end
