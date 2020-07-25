@@ -3,7 +3,7 @@
     %h1.icon
       -# = link_to "/" do
       -#   %img{ src: "assets/material/logo/logo.png" }
-      = link_to image_tag('material/logo/logo.png'), '#'
+      = link_to image_tag('material/logo/logo.png'), '#', class: "header-logo"
     .header__inside__main__search
       = form_with url: '#' do |form|
         = form.text_field :searchInput, placeholder: "キーワードから探す", class: "searchBox--input"

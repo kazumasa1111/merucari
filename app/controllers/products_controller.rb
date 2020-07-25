@@ -4,16 +4,16 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @products = Product.includes(:images).order('created_at DESC')
     @product = Product.new
     @product.images.new
     @product.build_brand
+    @products = Category.order("id ASC").limit(13)
   end
 
 
   def create
     @products = Product.includes(:images).order('created_at DESC')
-    @product = Product.new(product_params)
+      @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
     else
