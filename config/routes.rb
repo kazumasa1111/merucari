@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   get 'test_products/show'
-  get 'test_products/edit'
+  get 'test_products/create'
   resources :items
 end

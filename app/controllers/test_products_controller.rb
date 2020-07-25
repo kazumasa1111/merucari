@@ -2,7 +2,7 @@ class TestProductsController < ApplicationController
   def show
   end 
 
-  def edit
+  def create
   end
   
 end
