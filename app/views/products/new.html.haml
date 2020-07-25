@@ -1,6 +1,6 @@
 .itemswrapper
   .putitems
-    = form_with url:"#", local: true do |f|
+    = form_with model: @product, local: true do |f|
       .putitems__image
         .putitems__image--name
           %label.putitems__image--name-label
@@ -9,13 +9,16 @@
             必須
         %p.putitems__image--content
           最大１０枚までアップロードできます
-        .putitems__image--input
-          = f.file_field :image, class: "putitems-image"
-          = image_tag asset_path('material/icon/icon-camera_2.png'), class: "putitems__image--input-camera"
-          %p.image-input-content
-            ドラッグアンドドロップ
-            %br/
-            またはクリックしてファイルをアップロード
+
+        = f.fields_for :images do |i|
+          .items
+            = i.label :image, class: "putitems__image--input" do
+              = i.file_field :image, class: "putitems-image"
+              = image_tag asset_path('material/icon/icon-camera_2.png'), class: "putitems__image--input-camera"
+              %p.image-input-content
+                ドラッグアンドドロップ
+                %br/
+                またはクリックしてファイルをアップロード
 
       .putitems__boder
 
@@ -57,7 +60,8 @@
             %p.putitems__image--name-any
               任意
           .category-select
-            = f.text_field :brand,  placeholder:"例）シャネル",class: "brand-input"
+            = f.fields_for :brand do |i|
+              = i.text_field :name,  placeholder:"例）シャネル",class: "brand-input"
           
         .putitems__detail--status
           .putitems__image--name
