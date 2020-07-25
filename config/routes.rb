@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'test_products/show'
   get 'test_products/create'
 
+  resources :items
+
 end
