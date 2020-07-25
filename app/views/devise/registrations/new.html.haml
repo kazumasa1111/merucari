@@ -8,6 +8,8 @@
       = form_with model: @user, url: user_registration_path, id: 'new_user register-form', class: 'new_user l-signup__inner registration-form', local: true do |f| 
         .signup_content
           .form-group
+            = render "devise/shared/error_messages", resource: resource
+          .form-group
             = f.label :nickname, "ニックネーム"
             %span.form-group__require 必須
             = f.text_field :nickname, class: "form-group__input", placeholder: "フリマ太郎"

@@ -8,8 +8,14 @@
       %h2.singup_container__head 住所登録
       = form_with model: @address, local: true, class: "signup-main__form" do |f|
         .signup_content
+          .form-group.error
+            -# = render "devise/shared/error_messages", resource: resource
+            = render "devise/shared/error_messages", resource: resource
+            -# = render "devise/shared/error_messages", resource: resource
+            = flash[:alert]
           .form-group
             %div
+              -# = render "devise/shared/error_messages", resource: resource
               = f.label :ship_family_name,"送付先氏名"
               %span.form-group__require 必須
             .form-group__flex
@@ -30,7 +36,8 @@
           .form-group 
             = f.label :prefecture,"都道府県"
             %span.form-group__require 必須
-            = f.text_field :prefecture, placeholder: "例) 大阪府", class: "form-group__input" 
+            -# = f.text_field :prefecture, placeholder: "例) 大阪府", class: "form-group__input" 
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: "form-group__input"}
 
           .form-group
             = f.label :municipality,"市区町村"
@@ -44,7 +51,9 @@
         
           .form-group
             = f.label :apartment_name,"建物名"
-            %span.form-group__require 必須
+            %span
+              任意
+            %br
             = f.text_field :apartment_name, placeholder: "例) 柳ビル103", class: "form-group__input"
 
           .form-group
