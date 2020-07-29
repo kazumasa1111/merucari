@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -82,3 +83,4 @@ gem 'active_hash'
 gem 'payjp'
 gem 'ancestry'
 gem 'jquery-rails'
+gem 'rails-i18n'
