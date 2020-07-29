@@ -1,6 +1,7 @@
-.itemswrapper
-  .putitems
-    = form_with model: @product, local: true do |f|
+= form_with model: @product, local: true do |f|
+  = render 'layouts/error_messages', model: f.object
+  .itemswrapper
+    .putitems
       .putitems__image
         .putitems__image--name
           %label.putitems__image--name-label
@@ -10,10 +11,11 @@
         %p.putitems__image--content
           最大１０枚までアップロードできます
 
-        = f.fields_for :images do |i|
-          .items
+        
+        .items
+          = f.fields_for :images do |i|
             = i.label :image, class: "putitems__image--input" do
-              = i.file_field :image, class: "putitems-image"
+              = i.file_field :image, type: 'file',class: "putitems-image"
               = image_tag asset_path('material/icon/icon-camera_2.png'), class: "putitems__image--input-camera"
               %p.image-input-content
                 ドラッグアンドドロップ
@@ -50,8 +52,8 @@
               カテゴリー
             %p.putitems__image--name-attention
               必須
-          .category-select
-            = f.collection_select :category_ids,@parents,:id, :name,{prompt: "選択してください"}  , class: "items-select"
+          .category-select.category-collection
+            = f.collection_select :category_id,@parents,:id, :name,{ include_blank: "選択してください", selected:"" } , class: "items-select"
             %p 🔻
         .putitems__detail--brand
           .putitems__image--name
@@ -60,8 +62,8 @@
             %p.putitems__image--name-any
               任意
           .category-select
-            = f.fields_for :brand do |i|
-              = i.text_field :name,  placeholder:"例）シャネル",class: "brand-input"
+            = f.fields_for :brand do |b|
+              = b.text_field :name,  placeholder:"例）シャネル", class: "brand-input"
           
         .putitems__detail--status
           .putitems__image--name
@@ -120,7 +122,7 @@
             %p.putitems__image--name-attention
               必須
           %p ¥
-          %input{name:"price",type: :number, placeholder:"0", class:"putitems__price--input-area"}
+          = f.text_field :price , placeholder: "0", class: "putitems__price--input-area"
           
         .putitems__price--fee
           %p 販売手数料（10％）

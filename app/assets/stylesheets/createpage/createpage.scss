@@ -325,3 +325,40 @@ img.item-num-0{
   display: flex;
   padding-top:16px ;
 }
+
+.child_category_id{
+  -webkit-appearance: none;
+  background-color: white;
+  margin-top: 16px;
+  color: #222222;
+  font-size: 16px;
+  height: 48px;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-image: initial;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.grandchild_category_id{
+  -webkit-appearance: none;
+  background-color: white;
+  margin-top: 16px;
+  color: #222222;
+  font-size: 16px;
+  height: 48px;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-image: initial;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+// .field_with_errors{
+//   width: none;
+  
+// }

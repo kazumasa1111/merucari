@@ -49,7 +49,7 @@ $(function(){
     //プレビューを削除
     target_image.remove();
     //inputタグに入ったファイルを削除
-    file_field.val("")
+    // file_field.val("")
   })
 
 
@@ -111,19 +111,106 @@ $(function(){
   // }
 
 
-  // カテゴリーのAjax実装
-  $("#product_category-select").on("change",function(){
-    let parentValue = document.getElementById("product_category-select").value;
+  
 
-    $.ajax({
-      url: '/products/search',
-      type: "GET",
-      data: {
-        parent_id: parentValue
-      },
-      dataType: 'json'
-    })
+  // 子カテゴリーの導入
+  function build_childSelect(){
+    let child_select =`
+              <div class="child-collection">
+                <select name="product[category_id]" class="child_category_id">
+                  <option value="">選択してください</option>
+                </select>
+              </div>
+              `
+      return child_select;
+  }
+  function build_Option(children){
+    let option_html = `
+                      <option value=${children.id}>${children.name}</option>
+                      `
+    return option_html;
+  }
 
-  })
+
+  $("#product_category_id").change(function(){
+    let parentValue = $("#product_category_id").val();
+
+    if (parentValue.length != 0){
+      $.ajax({
+        url: '/products/search',
+        type: "GET",
+        data: {
+          parent_id: parentValue
+        },
+        dataType: 'json'
+        })
+
+      .done(function(data){
+        $(".child_category_id").remove();
+        $(".grandchild_category_id").remove();
+
+        let child_select = build_childSelect
+        $(".category-collection").append(child_select);
+        data.forEach(function(d){
+          let option_html = build_Option(d)
+          $(".child_category_id").append(option_html);
+        })
+      })
+      .fail(function(){
+        alert("通信エラーです")
+      });
+    }
+  });
+
+
+
+
+  // 孫カテゴリーの導入
+  function build_grandchildSelect(){
+    let grandchild_select =`
+                          <select name="product[category_id]" class="grandchild_category_id">
+                            <option value="">選択してください</option>
+                          </select>
+                          `
+      return grandchild_select;
+  }
+  function build_Option(children){
+    let option_html = `
+                      <option value=${children.id}>${children.name}</option>
+                      `
+    return option_html;
+  }
+
+  $(document).on("change", ".child_category_id", function(){
+    let childValue = $(".child_category_id").val();
+
+    if (childValue.length != 0){
+      $.ajax({
+        url: '/products/search',
+        type: "GET",
+        data: {
+          child_id: childValue
+        },
+        dataType: 'json'
+        })
+
+      .done(function(data){
+        $(".grandchild_category_id").remove();
+
+        let grandchild_select = build_grandchildSelect
+        $(".category-collection").append(grandchild_select);
+
+        data.forEach(function(grand_d){
+          let option_html = build_Option(grand_d);
+          $(".grandchild_category_id").append(option_html);
+        })
+      })
+      .fail(function(){
+        alert("通信エラーです")
+      });
+    }
+  });
+
+
 
 });
