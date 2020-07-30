@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_07_25_045533) do
     t.string "days_until_shipping", null: false
     t.string "price", null: false
     t.bigint "prefecture_id"
+    t.integer "status", default: 0
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.datetime "created_at", null: false

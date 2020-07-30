@@ -16,10 +16,9 @@ class ProductsController < ApplicationController
     
       @product = Product.new(product_params)
     if @product.save
-      flash.now[:alert] = '登録が完了しました'
       redirect_to root_path
     else
-      render :new
+      render action: :new
     end
   end
 

@@ -10,6 +10,8 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :price               , null:false, length: { in: 300..9999999}
       t.bigint :prefecture_id
 
+      # 出品中が整数の０、　売れたら１の状態にする
+      t.integer :status            ,default: 0
       # t.references :user    , null:false, foreign_key: true
       t.references :category ,type: :bigint , null:false
       t.references :brand            
