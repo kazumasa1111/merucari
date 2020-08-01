@@ -1,0 +1,54 @@
+#next
+  .confirmMain
+    .confirmMain__header
+      = link_to image_tag(asset_path('material/logo/logo.png')), '#', class: "confirmMain__header__logo"
+    .constSub.constPart
+      .constPart__material
+        %section.confirm_lists
+          %h2.fontWeight.font.fontWide.purchaseConfirm 購入内容の確認
+        %section.confirm_lists
+          .confirmImg
+            .confirmImg__pict
+              %figure.confirmImg__pict__thumbnail.confirmImg__pict__range
+                = image_tag asset_path('material/pict/pict-reason-01.jpg')
+            .productDetails
+              %p.productDetails__text NIKE WMNS FREE RN MOTION FLYKNIT 2　青　24㎝
+              %p.productDetails__price
+                %span.productDetails__price__font 送料込み (税込)
+                %span.productDetails__price__num ¥7,600
+        %section.confirm_lists
+          .confirmPaying
+            %span 支払い金額
+            %span.confirmPaying__num ¥7,600
+          %label.confirmPoints
+            %label.confirmPoints__labelMain
+              %span.style_controls.style_disabled
+                %span
+                  %input{disabled: "disabled", name: "use-furima-points", type: "checkbox", value: ""}/
+                  %svg{"aria-hidden" => "true", fill: "#ffffff", "fill-rule" => "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
+                    %path{d: "M9.21,18.09a1.52,1.52,0,0,1-1.09-.44l-5-5a.71.71,0,0,1,0-1,.69.69,0,0,1,1,0l5,5a.26.26,0,0,0,.33-.07L19.92,6.11a.7.7,0,0,1,1,1L10.43,17.58A1.72,1.72,0,0,1,9.21,18.09Z"}
+              = image_tag asset_path('material/icon/icon_brand.png'), class: "logoImg"
+              %p.getPoints ポイント
+            %p.havePoints 所持ポイント : P0
+        %section.confirm_lists
+          %div
+            .howToPay
+              %h3.howToPay__text 支払い方法
+            = link_to '#', class: "registerPay" do
+              %svg{"aria-hidden" => "true", fill: "#0095ee", "fill-rule" => "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
+                %path{d: "M17.51,11.3H12.7v-5a.7.7,0,0,0-1.4,0v5h-5a.7.7,0,0,0,0,1.4h5v4.81a.7.7,0,0,0,1.4,0V12.7h4.81a.7.7,0,0,0,0-1.4Z"}
+                %path{d: "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.6A8.6,8.6,0,1,1,20.6,12,8.61,8.61,0,0,1,12,20.6Z"}
+              %span.registerBtn 登録してください
+        %section.confirm_lists
+          %div
+            .posting
+              %h3.posting__text 配送先
+            = link_to '#', class: "postingSelect" do
+              %svg{"aria-hidden" => "true", fill: "#0095ee", "fill-rule" => "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
+                %path{d: "M17.51,11.3H12.7v-5a.7.7,0,0,0-1.4,0v5h-5a.7.7,0,0,0,0,1.4h5v4.81a.7.7,0,0,0,1.4,0V12.7h4.81a.7.7,0,0,0,0-1.4Z"}
+                %path{d: "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.6A8.6,8.6,0,1,1,20.6,12,8.61,8.61,0,0,1,12,20.6Z"}
+              %span.postingBtn{"data-test" => "transaction-buy-address-registering-link"} 登録してください
+        %section.confirm_lists
+          %div
+            %p.confirmFinal 配送先と支払い方法の入力を完了してください。
+            .confirmFinalBtn{"data-test" => "transaction-buy-purchase", disabled: "disabled"} 購入する

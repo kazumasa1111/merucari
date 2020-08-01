@@ -3,7 +3,8 @@
     %h1.icon
       -# = link_to "/" do
       -#   %img{ src: "assets/material/logo/logo.png" }
-      = link_to image_tag('material/logo/logo.png'), '#', class: "header-logo"
+      = link_to image_tag('material/logo/logo.png'), '/', class: "header-logo"
+
     .header__inside__main__search
       = form_with url: '#' do |form|
         = form.text_field :searchInput, placeholder: "キーワードから探す", class: "searchBox--input"
@@ -56,7 +57,15 @@
         = link_to "ブランド", "#", id: "brandBtn"
         %ul.brandsPulldown.displayNone
     %ul.rightPart
-      %li.rightPart__item.rightPart__item--login
-        = link_to "ログイン", "#"
-      %li.rightPart__item.rightPart__item--new
-        = link_to "新規会員登録", "#"
+      -# %li.rightPart__item.rightPart__item--login
+      -#   = link_to "ログイン", new_user_session_path
+      -# %li.rightPart__item.rightPart__item--new
+      -#   = link_to "新規会員登録", new_user_registration_path
+      - if user_signed_in?
+        %li.rightPart__item
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        %li.rightPart__item.rightPart__item--login
+          = link_to "ログイン", new_user_session_path
+        %li.rightPart__item.rightPart__item--new
+          = link_to "新規会員登録", new_user_registration_path
