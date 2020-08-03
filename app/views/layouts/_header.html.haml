@@ -61,6 +61,10 @@
       - if user_signed_in?
         %li.rightPart__item
           = link_to "ログアウト", destroy_user_session_path, method: :delete
+        %li.rightPart__item
+          -# = link_to user_path(current_user), class:"" do
+          -#   マイページ
+          = link_to current_user.nickname, user_path(current_user), class: ""
       - else
         %li.rightPart__item.rightPart__item--login
           = link_to "ログイン", new_user_session_path

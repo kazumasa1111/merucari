@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :address, dependent: :delete
   before_save { email.downcase! }
+  has_one :card,    dependent: :delete
 
   with_options presence: true do
     validates :nickname

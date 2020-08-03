@@ -1,5 +1,6 @@
 Rails.application.routes.draw do 
   
+  get 'contracts/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -12,5 +13,12 @@ Rails.application.routes.draw do
   get 'test_products/create'
 
   resources :items
-
+  resources :users, only: :show 
+  # マイページ用に作成ビューは適当です。
+  resources :cards, only: [:new, :create, :index, :destroy]
+  # クレジット用のコントローラーです
+  # resources :products do
+  #   resources :contracts, only: [:new, :create]
+  # end
+  resources :contracts, only: [:new, :create]
 end
