@@ -60,7 +60,7 @@ main {
 }
 
 a {
-  color: #0099e8;
+  color: #333333;
   text-decoration: none;
 }
 
@@ -307,10 +307,11 @@ nav ol, nav ul {
         transition: all ease-out .2s;
         padding-right: 0;
       }
-      .active {
+      &__active {
         background: #eee;
         font-weight: 600;
         color: #333;
+        text-decoration: none;
       }
       li:first-child {
         border: 0;

@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'users/index'
-
+  resources :users, only: :show
 end
 
