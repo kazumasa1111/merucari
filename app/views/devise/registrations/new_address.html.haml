@@ -1,0 +1,66 @@
+.signup
+  %header.signup__header
+    %h1
+      = link_to image_tag(asset_path("material/logo/logo.png")), '#'
+
+  %main.signup__main
+    %section.singup_container
+      %h2.singup_container__head 住所登録
+      = form_with model: @address, local: true, class: "signup-main__form" do |f|
+        .signup_content
+          .form-group.error
+            -# = render "devise/shared/error_messages", resource: resource
+            = render "devise/shared/error_messages", resource: resource
+            -# = render "devise/shared/error_messages", resource: resource
+            = flash[:alert]
+          .form-group
+            %div
+              -# = render "devise/shared/error_messages", resource: resource
+              = f.label :ship_family_name,"送付先氏名"
+              %span.form-group__require 必須
+            .form-group__flex
+              = f.text_field :ship_family_name, placeholder: "例) 山田", class: "form-group__flex__half"
+              = f.text_field :ship_first_name, placeholder: "例) 彩", class: "form-group__flex__half"
+          .form-group
+            %div
+              = f.label :ship_family_name,"送付先氏名カナ"
+              %span.form-group__require 必須
+            .form-group__flex
+              = f.text_field :ship_family_name_kana, placeholder: "例) 山田", class: "form-group__flex__half"
+              = f.text_field :ship_first_name_kana, placeholder: "例) 彩", class: "form-group__flex__half"
+          .form-group 
+            = f.label :postal_code,"郵便番号"
+            %span.form-group__require 必須
+            = f.text_field :postal_code, placeholder: "例) 123-4567", class: "form-group__input" 
+
+          .form-group 
+            = f.label :prefecture,"都道府県"
+            %span.form-group__require 必須
+            -# = f.text_field :prefecture, placeholder: "例) 大阪府", class: "form-group__input" 
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: "form-group__input"}
+
+          .form-group
+            = f.label :municipality,"市区町村"
+            %span.form-group__require 必須
+            = f.text_field :municipality, placeholder: "例) 横浜市緑区", class: "form-group__input"
+        
+          .form-group
+            = f.label :block_number,"番地"
+            %span.form-group__require 必須
+            = f.text_field :block_number, placeholder: "例) 青山1-1-1", class: "form-group__input"
+        
+          .form-group
+            = f.label :apartment_name,"建物名"
+            %span
+              任意
+            %br
+            = f.text_field :apartment_name, placeholder: "例) 柳ビル103", class: "form-group__input"
+
+          .form-group
+            = f.label :phone_number,"電話番号"
+            %span
+              任意
+            %br
+            = f.text_field :phone_number, placeholder: "例) 09012345678", class: "form-group__input"
+        .signup_content
+          = f.submit "登録", class: "btn-default btn-red"

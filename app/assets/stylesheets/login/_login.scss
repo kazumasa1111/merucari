@@ -1,0 +1,137 @@
+.login {
+  padding: 0 0 250px;
+  background: rgb(245, 245, 245);
+  header {
+    display: block;
+  }
+  &__header {
+    text-align: center;
+    h1 {
+      display: inline-block;
+      margin: 11px 0 12px;
+      a {
+        display: inline-block;
+        width: 120px;
+        height: 33px;
+        margin: 0 8px 0 0;
+        line-height: 33px;
+        img {
+          width: 120px;
+          height: 33px;
+        }
+      }
+    }
+    
+  }
+  main {
+    display: block;
+    .panel {
+      max-width: 456px;
+      margin: 0 auto;
+      background: #fff;
+      &__no-account {
+        padding: 24px 32px;
+        text-align: center;
+        p {
+          font-size: 14px;
+        }
+        a {
+          display: block;
+          margin: 8px 0 0;
+          border-radius: 4px;
+          border: 1px solid #767676;
+          background: #767676;
+          color: #fff;
+          line-height: 40px;
+          text-decoration: none;
+        }
+      }
+      form {
+        display: block;
+        margin-top: 0em;
+        .login-form-inside {
+          padding: 24px 32px;
+          border-top: 1px solid #eee;
+          
+          .form-group {
+            margin: 40px 0 0;
+            
+            &__input-default {
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+               width: 100%;
+               margin: 8px 0 0;
+            }
+          }
+          .btn-default {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+          }
+          .btn-red {
+            background: #3CCACE;
+            border: 1px solid #3CCACE;
+            color: #ffffff;
+            input {
+              background-color: #3CCACE;
+              color: #ffffff;
+              border-width: 0;
+            }
+          }
+
+          .login-submit {
+            margin: 24px 0 0;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+  .login {
+    padding: 0 0 220px;
+  }
+  .login__header {
+    height: 128px;
+  }
+
+  .login__header h1 {
+    margin: 40px 0 0;
+  }
+  .login__header a {
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+  }
+  .login__header img {
+    width: 185px;
+    height: 49px;
+  }
+
+  .panel {
+    max-width: none;
+    width: 456px;
+  }
+
+  .panel__no-account {
+    padding: 40px 64px;
+  }
+
+  .login-form-inner {
+    padding: 32px 64px;
+  }
+}

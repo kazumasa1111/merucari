@@ -1,0 +1,25 @@
+%h2.head ピックアップカテゴリー
+.product
+  .product__head
+    = link_to "#" do
+      %h3.title 新規投稿商品
+.product-lists-all
+  - @images.each do |image|
+    %ul
+      %li.product__lists
+        .productTopic
+          = link_to product_path(image) do 
+            %figure.productTopic--img
+              = image_tag image.image.url
+            .productTopic--body
+              %h3.name
+                = image.product.name
+              .details
+                %ul
+                  %li
+                    = image.product.price
+                    円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)

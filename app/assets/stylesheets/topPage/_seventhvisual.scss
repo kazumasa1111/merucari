@@ -1,5 +1,5 @@
 .seventhVisual {
-  background-image: url(./material/pict/bg-appBanner-pict.jpg);
+  // background-image: url(./material/pict/bg-appBanner-pict.jpg);
   padding: 100px 40px;
   position: relative;
   background-size: cover;
@@ -22,19 +22,19 @@
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
-      a{
-        &:first-child {
-          margin-right: 10px;
-        }
-        .apple {
-          width: 150px;
-          margin: 13px;
-        }
-
-        .google {
-          width: 180px;
-        }
+      
+      &:first-child {
+        margin-right: 10px;
       }
+      .apple {
+        width: 150px;
+        margin: 13px;
+      }
+
+      .google {
+        width: 180px;
+      }
+      
     }
   }
 }

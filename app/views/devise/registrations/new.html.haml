@@ -1,0 +1,73 @@
+.signup
+  %header.signup__header
+    %h1
+      = link_to image_tag(asset_path("material/logo/logo.png")), '#'
+  %main.signup__main
+    %section.singup_container
+      %h2.singup_container__head 会員情報入力
+      = form_with model: @user, url: user_registration_path, id: 'new_user register-form', class: 'new_user l-signup__inner registration-form', local: true do |f| 
+        .signup_content
+          .form-group
+            = render "devise/shared/error_messages", resource: resource
+          .form-group
+            = f.label :nickname, "ニックネーム"
+            %span.form-group__require 必須
+            = f.text_field :nickname, class: "form-group__input", placeholder: "フリマ太郎"
+          .form-group
+            = f.label :email, "メールアドレス" 
+            %span.form-group__require 必須
+            = f.email_field :email, class: "form-group__input", placeholder: "PC・携帯どちらでも可"
+          .form-group
+            = f.label :password, "パスワード"
+            %span.form-group__require 必須
+            = f.password_field :password, autocomplete: "off", class: "form-group__input", placeholder: "7文字以上の半角英数字"
+            %p.form-group__info_text
+              ※ 英字と数字の両方を含めて設定してください
+          .form-group
+            = f.label :password_confirmation,"パスワード確認"
+            %span.form-group__require 必須
+            = f.password_field :password_confirmation, placeholder: "7文字以上の半角英数字", class: "form-group__input"
+          .form-group
+            %h3.form-group__sub-head 本人確認
+            %p.l-signup__text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            %div
+              = f.label :last_name,"お名前(全角)"
+              %span.form-group__require 必須
+            .form-group__flex
+              = f.text_field :last_name, placeholder: "例) 山田", class: "form-group__flex__half"
+              = f.text_field :first_name, placeholder: "例) 彩", class: "form-group__flex__half"
+          .form-group
+            %div
+              = f.label :last_name,"お名前カナ(全角)"
+              %span.form-group__require 必須
+            .form-group__flex
+              = f.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "form-group__flex__half"
+              = f.text_field :first_name_kana, placeholder: "例) アヤ", class: "form-group__flex__half"
+          .form-group 
+            = f.label :tel, "電話番号"
+            %span.form-group__require 必須
+            = f.text_field :tel, placeholder: '携帯電話の番号を入力', class: "form-group__input" 
+          .form-group
+            = f.label :birthday,"生年月日"
+            %span.form-group__require 必須
+            %br/
+            .birthday
+              .birthday__wrap
+                %i.icon-arrow-bottom
+                  != sprintf(f.date_select(:birthday, start_year: (Time.now.year), end_year: (Time.now.year - 119), default: Date.new((Time.now.year)), prompt: "--", use_month_numbers: true, date_separator:'%s'),'年 ','月 ')+'日'
+          %p.form-group__info_text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .signup_content
+          = f.submit "次へ進む", class: "btn-default btn-red"
+          .form-group.text-right
+            %p
+            = link_to "本人情報の登録について", "/jp/help_center/article/423/"
+          .form-group.recaptcha_term
+            %p
+              This site is protected by reCAPTCHA and the Google
+              = link_to "Privacy Policy", "https://policies.google.com/privacy"
+              and
+              = link_to "Terms of Service", "https://policies.google.com/terms"
+              apply
