@@ -21,10 +21,9 @@
       }
     }
     &__lists {
-      width: 780px;
+      width: auto;
       margin: 26px auto;
       display: flex;
-      justify-content: space-around;
       a {
           text-decoration: none;
           position: relative;
@@ -84,3 +83,7 @@
   }
 }
 
+.product-lists-all {
+  display: flex;
+  justify-content: center;
+}

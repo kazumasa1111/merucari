@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
 
   root 'products#index'
-  get 'test_products/show'
   get 'test_products/create'
 
   resources :products do
