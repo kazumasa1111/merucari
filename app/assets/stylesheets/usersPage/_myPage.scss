@@ -1,0 +1,388 @@
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 700px;
+  display: block;
+}
+
+.l-container {
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+}
+
+.l-content {
+  width: 100%;
+}
+
+.mypage-user-icon {
+  position: relative;
+  height: 155px;
+  padding: 20px;
+  background: url("#");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  a {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #333;
+  }
+  figure {
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  h2 {
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.mypage-number {
+  margin: 8px 0 0;
+  font-size: 0;
+  div {
+    display: inline-block;
+    font-size: 14px;
+  }
+  span{
+    margin: 0 0 0 8px;
+    font-size: 16px;
+  }
+  div+div {
+    margin: 0 0 0 16px;
+  }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.mypage-tabs {
+  border: 0;
+  background: #eee;
+  font-size: 0;
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+  }
+  .mypage-nav-number {
+    top: 16px;
+    right: 2px;
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ea352d;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    transform: translate(0, -50%);
+  }
+  li {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    .active {
+    background: #fff;
+    a {
+      border-top: 2px solid #ea352d;
+    }
+    }
+  }
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+.tab-content .tab-pane.active {
+  display: block;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.lazyloaded {
+  opacity: 1;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+
+.mypage-item {
+  &__body {
+    margin: 0 40px 0 68px;
+    &__text {
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      max-height: 4.4em;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+    }
+  }
+  &__link {
+    display: block;
+    min-height: 20px;
+    padding: 16px;
+    color: #333;
+    figure {
+      position: relative;
+      overflow: hidden;
+      float: left;
+      width: 48px;
+      height: 48px;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      text-decoration: none;
+      width: 100%;
+    }
+    time {
+      display: inline-block;
+      color: #888;
+      span {
+        vertical-align: middle;
+      }
+    }
+    .icon-time {
+      margin: 0 8px 0 0;
+    }
+    .icon-arrow-right {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+  }
+  &__list 
+  li {
+    position: relative;
+    border-bottom: 1px solid #eee;
+  }
+  li:last-child {
+    border: 0;
+  }
+  &__not-found {
+      border: 0;
+      width: 700px;
+      height: 200px;
+      line-height: 200px;
+      text-align: center;
+    }
+}
+
+i {
+  display: inline-block;
+  font-family: 'icon-font';
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-time {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.mypage-go-list {
+  padding: 16px;
+  a {
+    display: block;
+  height: 56px;
+  margin: 0 auto;
+  background: #eee;
+  color: #333;
+  line-height: 56px;
+  text-align: center;
+  }
+}
+
+.mypage-tab{
+  &__container {
+    margin: 40px 0 0;
+    background: #fff;
+    &__notification-todo {
+      margin: 0;
+      background: #fff;
+    }
+  }
+  &__head {
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+  }
+}
+
+nav ol, nav ul {
+  list-style: none;
+}
+
+.mypage-nav {
+  &__head {
+    margin: 40px 0 0;
+  }
+  &__list {
+    margin: 8px 0 0;
+    &__item {
+      position: relative;
+      display: block;
+      min-height: 48px;
+      padding: 16px;
+      background: #fff;
+      font-size: 14px;
+      color: #333;
+      border-top: 1px solid #eee;
+      height: 50px;
+      line-height: 50px;
+      .icon-arrow-right {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        color: #ccc;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        -webkit-transition: all ease-out .2s;
+        transition: all ease-out .2s;
+        padding-right: 0;
+      }
+      &__active {
+        background: #eee;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+      }
+      li:first-child {
+        border: 0;
+      }
+    }
+  }
+  &__number {
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ea352d;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .l-container {
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .l-container {
+    margin: 40px auto 0;
+    width: 1020px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .l-content {
+    float: none;
+    width: 700px;
+ }
+}
+
+@media screen and (min-width: 1068px) {
+  .l-content {
+    float: right;
+  }
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .mypage-user-icon {
+      height: 200px;
+  }
+}
+
+.side {
+  margin: 40px auto 0;
+}
+
+@media screen and (min-width: 768px) {
+  .side {
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .side {
+    // float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+ }
+}

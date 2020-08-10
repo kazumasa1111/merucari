@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :set_parents, only: [:index,:new, :create]
+  before_action :set_parents, only: [:index,:new, :create, :show]
 
   def index
     @parents = Category.where(ancestry: nil)
+    @products = Product.all
+    @images = Image.all
   end
 
   def new
@@ -38,6 +40,12 @@ class ProductsController < ApplicationController
         end
       end
     end
+  end
+
+
+  def show
+    @product = Product.find(params[:id])
+    @image = Image.find(params[:id])
   end
 
 

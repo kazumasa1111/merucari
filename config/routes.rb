@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   end
 
   root 'products#index'
-  get 'test_products/show'
   get 'test_products/create'
 
   resources :products do
@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
 
-  end
+  resources :users, only: :show
+end
 
