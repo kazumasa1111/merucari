@@ -26,6 +26,9 @@ img{
 
 .header {
   padding: 0 60px;
+  &__menu{
+    display: flex;
+  }
   &__inside {
     max-width: 1040px;
     width: 100%;
@@ -69,6 +72,9 @@ img{
       }
     }
     &__nav {
+      li {
+        list-style: none;
+      }
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
@@ -141,6 +147,60 @@ img{
   }
 }
 
+.top-category{
+  display: flex;
+  line-height: 38px;
+  padding: 0 0 0 16px;
+  height: 30px;
+  z-index: 2;
+  background-color: #fff;
+  a {
+      width: 155px;
+      color: #333;
+      text-decoration: none;
+      line-height: 32px;
+      background-position: center right;
+      background-repeat: no-repeat;
+      background-size: 18px;
+      padding-right: 30px;
+      
+      &:hover {
+        color: #ffb340;
+      }
+  }
+}
+
+
+.parents-list{
+  width: 205px;
+  padding-left: 5px;
+  position: relative;
+  border-right: 1px solid gray;
+  background-color: #fff;
+}
+
+.children-list{
+  position: absolute;
+  top: 0px;
+  left: 205px;
+  padding-left: 20px;
+  display: block;
+  width: 200px;
+  border-right: 1px solid gray;
+  background-color: #fff;
+}
+
+.grandchildren-list{
+  padding-left: 20px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 405px;
+  width: 300px;
+  background-color: #fff;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   font-weight: normal;
@@ -211,4 +271,5 @@ ol, ul {
     width: 100%;
   }
 }
+
 
