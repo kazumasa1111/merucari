@@ -53,12 +53,6 @@ class ProductsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
-
-
-
-
-
-
 private
 
   def product_params
