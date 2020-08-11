@@ -14,33 +14,34 @@
             = image_tag('material/icon/icon-search 1.png')
     %ul.resultLists
 
+  - unless controller_name == "registrations" 
+    - unless controller_name == "sessions" 
+      .header__inside__nav   
+        .top-category
+          %ul
+            %li
+              = link_to "#", class: "category-items" do
+                %i.top-category__title
+                  カテゴリーから探す
+              %ul.parents-list
+                - @parents.each do |parent|
+                  %li
+                    = link_to "#{parent.name}", category_path(parent), class: "parent-category",id: "#{parent.id}"
+                %ul.children-list
+                %ul.grandchildren-list
 
-  .header__inside__nav   
-    .top-category
-      %ul
-        %li
-          = link_to "#", class: "category-items" do
-            %i.top-category__title
-              カテゴリーから探す
-          %ul.parents-list
-            - @parents.each do |parent|
-              %li
-                = link_to "#{parent.name}", category_path(parent), class: "parent-category",id: "#{parent.id}"
-            %ul.children-list
-            %ul.grandchildren-list
+        .leftPart__item
+          = link_to "ブランド", "#", id: "brandBtn"
+          %ul.brandsPulldown.displayNone
+        %ul.rightPart
 
-    .leftPart__item
-      = link_to "ブランド", "#", id: "brandBtn"
-      %ul.brandsPulldown.displayNone
-    %ul.rightPart
-
-      - if user_signed_in?
-        %li.rightPart__item
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
-        %li.rightPart__item
-          = link_to current_user.nickname, user_path(current_user), class: ""
-      - else
-        %li.rightPart__item.rightPart__item--login
-          = link_to "ログイン", new_user_session_path
-        %li.rightPart__item.rightPart__item--new
-          = link_to "新規会員登録", new_user_registration_path
+        - if user_signed_in?
+          %li.rightPart__item
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.rightPart__item
+            = link_to current_user.nickname, user_path(current_user), class: ""
+        - else
+          %li.rightPart__item.rightPart__item--login
+            = link_to "ログイン", new_user_session_path
+          %li.rightPart__item.rightPart__item--new
+            = link_to "新規会員登録", new_user_registration_path
