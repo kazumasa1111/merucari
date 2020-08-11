@@ -8,11 +8,11 @@
         .product__list
           .productTopic
             = link_to product_path(product) do 
-              .productTopic--img
+              .productTopic__img
                 - product.images.each do |image|
                   %li
                     = image_tag image.image.url, size: "140x140" , class: "show-img"
-              .productTopic--body
+              .productTopic__body
                 %h3.name
                   = product.name
                 .details

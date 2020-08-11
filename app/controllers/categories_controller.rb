@@ -12,11 +12,6 @@ def show
   @parents = Category.where(ancestry: nil)
   @products = @category.set_products
   @products = @products.order("created_at DESC")
-  
-
-  @image = Image.where(params[:id])
-  # @images = @products.image.images.new
-
 end
 
 
