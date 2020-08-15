@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_parents, only: [:index,:new, :create, :show]
 
   def index
+    @parents = Category.where(ancestry: nil)
     @products = Product.all
     @images = Image.all
   end
@@ -15,7 +16,6 @@ class ProductsController < ApplicationController
 
 
   def create
-    
       @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
@@ -23,6 +23,11 @@ class ProductsController < ApplicationController
       render action: :new
     end
   end
+
+  def show
+    
+  end
+
 
   def search
     respond_to do |format|
@@ -47,8 +52,6 @@ class ProductsController < ApplicationController
   def set_parents
     @parents = Category.where(ancestry: nil)
   end
-
-
 
 private
 

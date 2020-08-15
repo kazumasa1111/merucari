@@ -1,0 +1,30 @@
+.category-background
+  .category-show
+    .category-title
+      = "#{@category.name}の商品一覧"
+
+    .product-lists-all
+      - @products.each do |product|
+        .product__list
+          .productTopic
+            = link_to product_path(product) do 
+              .productTopic__img
+                - product.images.each do |image|
+                  %li
+                    = image_tag image.image.url, size: "140x140" , class: "show-img"
+              .productTopic__body
+                %h3.name
+                  = product.name
+                .details
+                  %ul
+                    %li
+                      = product.price
+                      円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)
+
+.purchaseBtn
+  %span.purchaseBtn__text 出品する
+  = link_to image_tag(asset_path('material/icon/icon_camera.png')),new_product_path, class: "purchaseBtn__icon"

@@ -13,59 +13,35 @@
           .searchBox__icon
             = image_tag('material/icon/icon-search 1.png')
     %ul.resultLists
-  .header__inside__nav
-    %ul.leftPart
-      %li.leftPart__item.leftPart__item--first
-        :javascript
-          function openMenu() {  
-            target.classList.remove('displayNone')
-          }
-          function closeMenu() {           
-            target.classList.add('displayNone')
-          }
-        = link_to "カテゴリー", "#", id: "catBtn", onmouseout: "closeMenu()", onmouseover: "openMenu()"
-        .tree.displayNone#target
-          %ul.categoryTree{onmouseout: "closeMenu()", onmouseover: "openMenu()"}
-            %li.categoryTree--item
-              = link_to "レディース", "#", id: 1
-            %li.categoryTree--item
-              = link_to "メンズ", "#", id: 2
-            %li.categoryTree--item
-              = link_to "ベビー・キッズ", "#", id: 3
-            %li.categoryTree--item
-              = link_to "インテリア・住まい・小物", "#", id: 4
-            %li.categoryTree--item
-              = link_to "楽・ゲーム", "#", id: 5
-            %li.categoryTree--item
-              = link_to "おもちゃ・ホビー・グッズ", "#", id: 6
-            %li.categoryTree--item
-              = link_to "コスメ・香水・美容", "#", id: 7
-            %li.categoryTree--item
-              = link_to "家電・スマホ・カメラ", "#", id: 8
-            %li.categoryTree--item
-              = link_to "スポーツ・レジャー", "#", id: 9
-            %li.categoryTree--item
-              = link_to "ハンドメイド", "#", id: 10
-            %li.categoryTree--item
-              = link_to "チケット", "#", id: 11
-            %li.categoryTree--item
-              = link_to "自動車・オートバイ", "#", id: 12
-            %li.categoryTree--item
-              = link_to "その他", "#", id: 13
 
-      %li.leftPart__item
-        = link_to "ブランド", "#", id: "brandBtn"
-        %ul.brandsPulldown.displayNone
-    %ul.rightPart
-      -# %li.rightPart__item.rightPart__item--login
-      -#   = link_to "ログイン", new_user_session_path
-      -# %li.rightPart__item.rightPart__item--new
-      -#   = link_to "新規会員登録", new_user_registration_path
-      - if user_signed_in?
-        %li.rightPart__item
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
-      - else
-        %li.rightPart__item.rightPart__item--login
-          = link_to "ログイン", new_user_session_path
-        %li.rightPart__item.rightPart__item--new
-          = link_to "新規会員登録", new_user_registration_path
+  - unless controller_name == "registrations" 
+    - unless controller_name == "sessions" 
+      .header__inside__nav   
+        .top-category
+          %ul
+            %li
+              = link_to "#", class: "category-items" do
+                %i.top-category__title
+                  カテゴリーから探す
+              %ul.parents-list
+                - @parents.each do |parent|
+                  %li
+                    = link_to "#{parent.name}", category_path(parent), class: "parent-category",id: "#{parent.id}"
+                %ul.children-list
+                %ul.grandchildren-list
+
+        .leftPart__item
+          = link_to "ブランド", "#", id: "brandBtn"
+          %ul.brandsPulldown.displayNone
+        %ul.rightPart
+
+        - if user_signed_in?
+          %li.rightPart__item
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.rightPart__item
+            = link_to current_user.nickname, user_path(current_user), class: ""
+        - else
+          %li.rightPart__item.rightPart__item--login
+            = link_to "ログイン", new_user_session_path
+          %li.rightPart__item.rightPart__item--new
+            = link_to "新規会員登録", new_user_registration_path

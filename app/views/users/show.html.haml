@@ -1,0 +1,223 @@
+.user-mypage-top
+  %main.l-container.clearfix
+    .l-content
+      %section.mypage-user-icon
+        = link_to "https://www.mercari.com/jp/u/845888676/" do
+          %figure
+          %h2.bold ソウシ
+          .mypage-number
+            %div 
+              評価
+              %span.bold 0
+            %div
+              出品数
+              %span.bold 0
+      %section.mypage-tab__container__notification-todo
+        %ul.mypage-tabs
+          %li.active
+            %h3
+              = link_to "#mypage-tab-notification" do
+                お知らせ
+                %span.mypage-nav__number.hidden-large
+                  99+
+          %li
+            %h3
+              = link_to "#mypage-tab-todo" do
+                やることリスト
+        .tab-content
+          %ul#mypage-tab-notification.mypage-item__list.tab-pane.active
+            %li
+              = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item__link" do
+                %figure
+                .mypage-item__body
+                  .mypage-item__body__text 事務局から個別メッセージ「ログイン通知」
+                  %time
+                    %i.icon-time
+                    %span 7 分前
+                %i.icon-arrow-right
+            %li
+              =link_to "", class: "mypage-item__link" do
+                %figure
+                .mypage-item__body
+                  .mypage-item__body__text 《この通知を受け取ったあなた限定》「500ポイントバック」のクーポンをプレゼントしました！
+                  %time
+                    %i.icon-time
+                    %span 3 時間前
+                %i.icon-arrow-right
+            %li
+              =link_to "", class: "mypage-item__link" do
+                %figure
+                .mypage-item__body
+                  .mypage-item__body__text 最大10万円分ポイント当たる！出品するなら今がチャンス！
+                  %time
+                    %i.icon-time
+                    %span 2 日前
+                %i.icon-arrow-right
+            %li
+              =link_to "", class: "mypage-item__link" do
+                %figure
+                .mypage-item__body
+                  .mypage-item__body__text 7月もまだまだお得！+20%還元中！
+                  %time
+                    %i.icon-time
+                    %span 3 日前
+                %i.icon-arrow-right
+            %li
+              =link_to "", class: "mypage-item__link" do
+                %figure
+                .mypage-item__body
+                  .mypage-item__body__text 《申込み開始》メルカリで買うと最大でP5,000+P1,000もらえる！マイナポイントはメルペイで
+                  %time
+                    %i.icon-time
+                    %span 5 日前
+                %i.icon-arrow-right
+            %li.mypage-go-list
+              =link_to "/jp/mypage/notification/" do
+                一覧を見る
+          %ul#mypage-tab-todo.mypage-item__list.tab-pane
+            %li.mypage-item__not-found.bold 現在、やることリストはありません
+      %section.mypage-tab__container
+        %h2.mypage-tab__head 購入した商品
+        %ul.mypage-tabs
+          %li.active
+            %h3
+              = link_to "#mypage-tab-transaction-now" do
+                取引中
+          %li
+            %h3
+              = link_to "#mypage-tab-transaction-old" do
+                過去の取引
+        .tab-content
+          %ul#mypage-tab-transaction-now.mypage-item__list.tab-pane.active
+            %li.mypage-item__not-found.bold 取引中の商品がありません
+          %ul#mypage-tab-transaction-old.mypage-item__list.tab-pane
+            %li.mypage-item__not-found.bold 過去に取引した商品がありません
+    .side
+      %nav.mypage-nav
+        %ul.mypage-nav__list
+          %li
+            .mypage-nav__list__item.active
+              = link_to "/jp/mypage/" do
+                マイページ 
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/notification/" do
+                お知らせ
+              %span.mypage-nav__number
+                99+
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/todo/" do
+                やることリスト
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/like/history/" do
+                いいね！一覧
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/sell/" do
+                出品する
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/drafts/" do
+                下書き一覧
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/listings/listing/" do
+                出品した商品 - 出品中
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/listings/in_progress/" do
+                出品した商品 - 取引中
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/listings/completed/" do
+                出品した商品 - 売却済み
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/purchase/" do
+                購入した商品 - 取引中
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/purchased/" do
+                購入した商品 - 過去の取引
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/news/" do
+                ニュース一覧
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/review/history/" do
+                評価一覧
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/help_center/" do
+                ガイド
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/support/" do
+                お問い合わせ
+              %i.icon-arrow-right
+        %h3.mypage-nav__head メルペイ
+        %ul.mypage-nav__list
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/sales/" do
+                売上・振込申請
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/point/" do
+                ポイント
+              %i.icon-arrow-right
+        %h3.mypage-nav__head 設定
+        %ul.mypage-nav__list
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/profile/" do
+                プロフィール
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/deliver_address/" do
+                発送元・お届け先住所変更
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/card/" do
+                支払い方法
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/email_password/" do
+                メール/パスワード
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/identification/" do
+                本人情報
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/mypage/sms_confirmation/" do
+                電話番号の確認
+              %i.icon-arrow-right
+          %li
+            .mypage-nav__list__item
+              = link_to "/jp/logout/" do
+                ログアウト
+              %i.icon-arrow-right
