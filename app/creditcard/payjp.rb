@@ -3,7 +3,6 @@ require 'pry'
 
 class MyPayjp
   Payjp::api_key = ENV["PAYJP_PRIVATE_KEY"]
-  # Payjp::api_key = "sk_test_4ef144e52e98103e9589be95"
 
   def self.create_token(number, cvc, exp_month, exp_year)
     token = Payjp::Token.create(

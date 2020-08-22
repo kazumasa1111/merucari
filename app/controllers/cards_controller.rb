@@ -31,11 +31,8 @@ class CardsController < ApplicationController
 
 
   def create
-    # binding.pry
     if params['payjp-token'].blank?
       redirect_to action: :new
-      # flash[:notice] = "登録に失敗したで（＾＾）"
-      # redirect_to root_path
     else
       customer = Payjp::Customer.create(
         email: current_user.email,
