@@ -1,0 +1,20 @@
+.content__title__credit-cards {
+  height: 40vh;
+  .credit-cards_list {
+    li {
+      form .cards_lists {
+        &__num {
+          margin: 40px;
+        }
+        &__remove {
+          margin: 20px;
+          cursor: pointer;
+          background-color: #3CCACE;
+          color: #fff;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
+}
+  
