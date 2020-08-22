@@ -87,3 +87,26 @@
   display: flex;
   justify-content: center;
 }
+
+a.disabled{
+    pointer-events: none;
+}
+
+.items-box_photo__sold{
+  width: 0;
+  height: 0;
+  border-top: 60px solid #3CCACE ;
+  border-right: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid #3CCACE ;
+  z-index:100;
+  position: absolute;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 28px;
+    margin:-35px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}

@@ -28,3 +28,5 @@
 public/uploads/*
 mercari.drawio
 .DS_Store
+.env.development
+.env.production

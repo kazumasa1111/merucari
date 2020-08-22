@@ -4,7 +4,8 @@
       %section.mypage-user-icon
         = link_to "https://www.mercari.com/jp/u/845888676/" do
           %figure
-          %h2.bold ソウシ
+          %h2
+            = current_user.nickname
           .mypage-number
             %div 
               評価
@@ -197,10 +198,7 @@
                 発送元・お届け先住所変更
               %i.icon-arrow-right
           %li
-            .mypage-nav__list__item
-              = link_to "/jp/mypage/card/" do
-                支払い方法
-              %i.icon-arrow-right
+            = render "card"
           %li
             .mypage-nav__list__item
               = link_to "/jp/mypage/email_password/" do

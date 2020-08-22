@@ -97,13 +97,19 @@
 - has_many :images
 
 
-## buy_productsテーブル
+<!-- ## buy_productsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_ID|integer|null:false, foreign_key: true|
 |user_ID|integer|null:false, foreign_key: true|
 |credit_ID|integer|null:false, foreign_key: true|
-|address_ID|integer|null:false, foreign_key: true|
+|address_ID|integer|null:false, foreign_key: true| -->
+
+## contractテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_ID|integer|null:false, foreign_key: true|
+|buyer_id|integer|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :product

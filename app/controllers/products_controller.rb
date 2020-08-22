@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
 
   def create
       @product = Product.new(product_params)
+      @product.user_id = current_user.id
     if @product.save
       redirect_to root_path
     else
