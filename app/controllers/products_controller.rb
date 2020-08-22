@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_parents, only: [:index,:new, :create, :show]
 
+
   def index
     @parents = Category.where(ancestry: nil)
     @products = Product.all
@@ -26,7 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    
+
   end
 
 
