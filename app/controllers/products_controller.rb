@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_parents, only: [:index,:new, :create, :show]
-                
+
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -18,9 +18,7 @@ class ProductsController < ApplicationController
 
   def create
       @product = Product.new(product_params)
-      
       @product.user_id = current_user.id
-
     if @product.save
       redirect_to root_path
     else
@@ -29,7 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    
+
   end
 
 

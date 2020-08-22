@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one :address, dependent: :delete
   has_many :products
   before_save { email.downcase! }
+  has_one :card,    dependent: :delete
 
   with_options presence: true do
     validates :nickname

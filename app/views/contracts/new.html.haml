@@ -1,0 +1,72 @@
+#next
+  .confirmMain
+    .confirmMain__header
+      = link_to image_tag(asset_path('material/logo/logo.png')), '#', class: "confirmMain__header__logo"
+    .constSub.constPart
+      .constPart__material
+        %section.confirm_lists
+          %h2.fontWeight.font.fontWide.purchaseConfirm 購入内容の確認
+        %section.confirm_lists
+          .confirmImg
+            .confirmImg__pict
+              %figure.confirmImg__pict__thumbnail.confirmImg__pict__range
+                - @product.images.each do |image|
+                  %li
+                    = image_tag image.image.url
+            .productDetails
+              %p.productDetails__text
+                = @product.name
+              %p.productDetails__price
+                %span.productDetails__price__font 送料込み (税込)
+                %span.productDetails__price__num
+                  = @product.price
+        %section.confirm_lists
+          .confirmPaying
+            %span 支払い金額
+            %span.confirmPaying__num
+              = @product.price
+          %label.confirmPoints
+            %label.confirmPoints__labelMain
+              %span.style_controls.style_disabled
+                %span
+                  %input{disabled: "disabled", name: "use-furima-points", type: "checkbox", value: ""}/
+                  %svg{"aria-hidden" => "true", fill: "#ffffff", "fill-rule" => "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
+                    %path{d: "M9.21,18.09a1.52,1.52,0,0,1-1.09-.44l-5-5a.71.71,0,0,1,0-1,.69.69,0,0,1,1,0l5,5a.26.26,0,0,0,.33-.07L19.92,6.11a.7.7,0,0,1,1,1L10.43,17.58A1.72,1.72,0,0,1,9.21,18.09Z"}
+              = image_tag asset_path('material/icon/icon_brand.png'), class: "logoImg"
+              %p.getPoints ポイント
+            %p.havePoints 所持ポイント : P0
+        %section.confirm_lists
+          %div
+            .howToPay
+              %h3.howToPay__text 
+                支払い方法
+              - if current_user.card.nil?
+                %li
+                  = link_to "登録してください", user_path(current_user), class: "howToPay__register"
+              - else
+                %li.howToPay__register
+                  クレジットカード
+        %section.confirm_lists
+          %div
+            .posting
+              %h3.posting__text 配送先
+            %li.shipping__kana
+              宛名（フリガナ）:
+              = current_user.last_name_kana + current_user.first_name_kana
+            %pre
+              宛名（漢字）       :&nbsp;
+              = current_user.last_name + current_user.first_name
+            %li.postal-code
+              %span 宛先 :
+              〒
+              = current_user.address.postal_code
+              = current_user.address.prefecture.name + current_user.address.municipality + current_user.address.block_number
+        %section.confirm_lists
+          %div
+            %button.confirmFinalBtn
+              - if current_user.card.present?
+                = link_to product_contracts_path(@product,@contract), method: "post", class: "purchase__container__submit__btn--text" do
+                  購入する
+              - else
+                = link_to user_path(current_user), class: "purchase__container__submit__btn--text" do
+                  クレジットカードを登録してください

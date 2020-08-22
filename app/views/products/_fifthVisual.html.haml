@@ -8,7 +8,13 @@
     %ul
       %li.product__lists
         .productTopic
-          = link_to product_path(image) do 
+          = link_to product_path(image), class: "#{ image.product.status == 1 ? 'disabled' : '' }" do 
+            - if image.product.status == 1
+              .items-box_photo__sold
+                .items-box_photo__sold__inner
+                  SOLD
+            - else
+              .none-sold
             %figure.productTopic--img
               = image_tag image.image.url
             .productTopic--body

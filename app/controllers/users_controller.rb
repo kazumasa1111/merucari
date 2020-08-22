@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @parents = Category.where(ancestry: nil)
+    @user = User.find(params[:id])
+    @card = Card.all
   end
 
 end

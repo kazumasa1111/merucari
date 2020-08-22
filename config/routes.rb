@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  # get 'contracts/new'
+  # get 'cards/index'
+  # get 'cards/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -17,11 +20,18 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
+    resources :contracts, only: [:new, :create]
   end
 
   resources :categories, only: [:show]
 
 
   resources :users, only: :show
+  resources :cards, only: [:new, :create, :index, :destroy]
+  # クレジット用のコントローラーです
+  # resources :products do
+  #   resources :contracts, only: [:new, :create]
+  # end
+  # resources :contracts, only: [:new, :create]
 end
 

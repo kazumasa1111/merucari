@@ -16,6 +16,7 @@
               %th 出品者
               %td
                 = @product.user.nickname
+                -# = @product.user_id
                 .category__icon
                   .category__icon__box
                     = image_tag asset_path('material/icon/icon_smile.png')
@@ -74,7 +75,9 @@
               = link_to "削除", class:"purchase"     
           - else
             .grid-6
-              = link_to "購入画面へ進む", class:"purchase"           
+              -# = link_to "購入画面へ進む", class:"purchase"  
+              = link_to new_product_contract_path(@product), class: "purchase" do
+                確定画面
         %p.itemMain__comment
           ご覧頂きありがとうございます。
       
