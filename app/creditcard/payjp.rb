@@ -1,4 +1,5 @@
 require 'payjp'
+require 'pry'
 
 class MyPayjp
   # Payjp::api_key = ENV["PAYJP_PRIVATE_KEY"]
