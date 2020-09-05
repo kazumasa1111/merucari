@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Product do
   describe '#create' do
 
-    it "以外存在すれば登録できる" do
+    it "全て存在すれば登録できる" do
       product = build(:product)
       expect(product).to be_valid
     end

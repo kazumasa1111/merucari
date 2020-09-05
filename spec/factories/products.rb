@@ -1,6 +1,7 @@
 FactoryBot.define do
 
   factory :product do
+    id                            {"1"}
     name                          {"item"}
     description_of_item           {"descriptionです"}
     commodity_condition           {"新品・未使用"}
@@ -13,6 +14,7 @@ FactoryBot.define do
     
     association :brand
     association :category
+    association :user
   end
 
 end
