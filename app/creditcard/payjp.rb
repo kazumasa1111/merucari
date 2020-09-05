@@ -2,7 +2,7 @@ require 'payjp'
 
 class MyPayjp
   # Payjp::api_key = ENV["PAYJP_PRIVATE_KEY"]
-  Payjp::api_key = 'sk_live_1f91f7629f35be668ff929d25c9161ad7367f736e7068e5b93dd0e3e'
+  Payjp::api_key = 'sk_test_4ef144e52e98103e9589be95'
 
   def self.create_token(number, cvc, exp_month, exp_year)
     token = Payjp::Token.create(
