@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_parents, only: [:index,:new, :create, :edit, :update, :show]
   before_action :set_finds, only: [:destroy, :edit, :update, :show]
-  # before_action :set_builds, only: [:new, :edit]
 
   def index
     @parents = Category.where(ancestry: nil)
