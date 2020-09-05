@@ -3,7 +3,7 @@ document.addEventListener(
 
     if (document.getElementById("token_submit") != null) {
 
-      Payjp.setPublicKey("pk_test_15e7c5404e07c0147401fa91");
+      Payjp.setPublicKey("pk_live_cc77c551aeeea68e209fe38d");
       let btn = document.getElementById("token_submit");
       btn.addEventListener("click", e => {
         e.preventDefault();
