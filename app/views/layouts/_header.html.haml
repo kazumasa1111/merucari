@@ -18,7 +18,7 @@
     - unless controller_name == "sessions" 
       - unless controller_name == "contracts" 
         - unless controller_name == "cards"
-          .header__inside__nav   
+          .header__inside__nav
             .top-category
               %ul
                 %li
@@ -26,11 +26,11 @@
                     %i.top-category__title
                       カテゴリーから探す
                   %ul.parents-list
-                    - @parents.each do |parent|
+                    -@parents.each do |parent|
                       %li
                         = link_to "#{parent.name}", category_path(parent), class: "parent-category",id: "#{parent.id}"
-                    %ul.children-list
-                    %ul.grandchildren-list
+                  %ul.children-list
+                  %ul.grandchildren-list
 
             .leftPart__item
               = link_to "ブランド", "#", id: "brandBtn"

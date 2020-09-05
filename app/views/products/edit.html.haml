@@ -1,0 +1,146 @@
+= form_with model: @product, local: true do |f|
+  = render 'layouts/error_messages', model: f.object
+  .itemswrapper
+    .putitems
+      .putitems__image
+        .putitems__image--name
+          %label.putitems__image--name-label
+            出品画像
+          %p.putitems__image--name-attention
+            必須
+        %p.putitems__image--content
+          最大１０枚までアップロードできます
+
+        
+        .items
+          = f.fields_for :images do |i|
+            = i.label :image, class: "putitems__image--input" do
+              = i.file_field :image, type: 'file',class: "putitems-image"
+              = image_tag asset_path('material/icon/icon-camera_2.png'), class: "putitems__image--input-camera"
+              %p.image-input-content
+                ドラッグアンドドロップ
+                %br/
+                またはクリックしてファイルをアップロード
+
+      .putitems__boder
+
+      .putitems__contents
+        .putitems__contens--name
+          .putitems__image--name
+            %label.putitems__image--name-label
+              商品名
+            %p.putitems__image--name-attention
+              必須
+          = f.text_field :name, placeholder: "40文字まで", class: "putitems__contents--name-input "
+        
+        .putitems__contents--discription
+          .putitems__image--name
+            %label.putitems__image--name-label
+              商品の説明
+            %p.putitems__image--name-attention
+              必須
+          = f.text_area :description_of_item, rows: "6", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "items-discription"
+      
+      .putitems__boder
+
+      .putitems__detail
+        %p.items-detail 
+          商品の詳細
+        .putitems__detail--category
+          .putitems__image--name
+            %label.putitems__image--name-label
+              カテゴリー
+            %p.putitems__image--name-attention
+              必須
+          .category-select.category-collection
+            = f.collection_select :category_id,@parents,:id, :name,{ include_blank: "選択してください", selected:"" } , class: "items-select"
+            %p 🔻
+
+
+            
+        .putitems__detail--brand
+          .putitems__image--name
+            %label.putitems__image--name-label
+              ブランド
+            %p.putitems__image--name-any
+              任意
+          .category-select
+            = f.fields_for :brand do |b|
+              = b.text_field :name,  placeholder:"例）シャネル", class: "brand-input"
+          
+        .putitems__detail--status
+          .putitems__image--name
+            %label.putitems__image--name-label
+              商品の状態
+            %p.putitems__image--name-attention
+              必須
+          .category-select
+            = f.select :commodity_condition, [["新品・未使用","新品・未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]],{include_blank: "選択してください"},  class: "items-select"
+            %p 🔻
+                
+      .putitems__boder
+
+      .putitems__shipping
+        %p.items-detail 
+          配送について
+        .putitems__shipping--container
+          .putitems__image--name
+            %label.putitems__image--name-label
+              配送料の負担
+            %p.putitems__image--name-attention
+              必須
+          .category-select
+            = f.select :shipping_charges, [["送料込み（出品者負担）","送料込み（出品者負担）"],["着払い（購入者負担）","着払い（購入者負担）"]],{include_blank: "選択してください"},  class: "items-select"
+            %p 🔻
+
+        .putitems__shipping--container
+          .putitems__image--name
+            %label.putitems__image--name-label
+              発送元の地域
+            %p.putitems__image--name-attention
+              必須
+          .category-select
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{include_blank: "選択してください"},  class: "items-select"
+            %p 🔻
+
+        .putitems__shipping--container
+          .putitems__image--name
+            %label.putitems__image--name-label
+              発送までの日数
+            %p.putitems__image--name-attention
+              必須
+          .category-select
+            = f.select :days_until_shipping, [["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"]],{include_blank: "選択してください"},  class: "items-select"
+            %p 🔻
+
+        .putitems__boder
+
+      .putitems__price
+        %p.items-detail 
+          価格（¥300〜9,999,999）
+        .putitems__price--input
+          .putitems__image--name.price-label
+            %label.putitems__image--name-label
+              販売価格
+            %p.putitems__image--name-attention
+              必須
+          %p ¥
+          = f.text_field :price , placeholder: "0", class: "putitems__price--input-area"
+          
+        .putitems__price--fee
+          %p 販売手数料（10％）
+          .putitems__price--fee-value
+    
+        .putitems__boder
+        .putitems__price--fee
+          %p 販売利益
+        .putitems__price--fee-value
+      
+      .putitems__btn
+        = f.submit "更新する", class: "putitems__btn--put"
+        = f.submit "下書きに保存", class: "putitems__btn--save"
+        = link_to "もどる", root_path, class: "back-btn"
+      
+      .putitems__attention
+        %p 
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_parents, only: [:index,:new, :create, :show]
-
+  before_action :set_parents, only: [:index,:new, :create, :edit, :update, :show]
+  before_action :set_finds, only: [:destroy, :edit, :update, :show]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -26,10 +26,27 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-
+  def destroy
+    if @product.destroy
+      redirect_to root_path,notice: '削除できました'
+    else
+      redirect_to root_path,notice: '削除できませんでした'
+    end
   end
 
+  def edit
+    @product.images
+    @product.build_category
+    @product.build_brand
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to root_path, notice: '更新されました'
+    else
+      render action: :edit
+    end
+  end
 
   def search
     respond_to do |format|
@@ -46,13 +63,21 @@ class ProductsController < ApplicationController
 
 
   def show
-    @product = Product.find(params[:id])
     @image = Image.find(params[:id])
   end
 
 
   def set_parents
     @parents = Category.where(ancestry: nil)
+  end
+
+  def set_finds
+    @product = Product.find(params[:id])
+  end
+  
+  def set_builds
+    @product.build_category
+    @product.build_brand
   end
 
 private
