@@ -22,5 +22,4 @@ def configure_permitted_parameters
         keys: [:nickname,  :birthday, :first_name,
                :last_name, :first_name_kana, :last_name_kana, :tel])
 end
-
 end

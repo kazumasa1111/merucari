@@ -20,10 +20,9 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
-    resources :contracts, only: [:new, :create, :destroy]
+    resources :contracts, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources :products, only: [:destroy]
 
   resources :categories, only: [:show]
 

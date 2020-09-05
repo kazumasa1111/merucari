@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Product do
-  describe '#create' do
+  describe '#create', '#update' do
 
     it "以外存在すれば登録できる" do
       product = build(:product)

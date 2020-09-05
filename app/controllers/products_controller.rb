@@ -26,16 +26,30 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    @product.images
+    @product.build_category
+    @product.build_brand
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def update
+    @parents = Category.where(ancestry: nil)
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    if @product.save
+      redirect_to root_path, notice: '更新されました'
+    else
+      render action: :edit
+    end
+  end
 
   def search
     respond_to do |format|
@@ -60,6 +74,7 @@ class ProductsController < ApplicationController
   def set_parents
     @parents = Category.where(ancestry: nil)
   end
+  
 
 private
 
