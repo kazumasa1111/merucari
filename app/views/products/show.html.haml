@@ -75,9 +75,8 @@
               = link_to "削除", product_path(@product), method: :delete
           - else
             .grid-6
-              = link_to "購入画面へ進む", class:"purchase"  
               = link_to new_product_contract_path(@product), class: "purchase" do
-                確定画面
+                購入画面へ進む
         %p.itemMain__comment
           ご覧頂きありがとうございます。
       
