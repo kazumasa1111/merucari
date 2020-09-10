@@ -11,7 +11,19 @@
         %p.putitems__image--content
           最大１０枚までアップロードできます
 
-        
+        - @product.images.each do |i|
+          .preview-box
+            .upper-box
+              = image_tag i.image.url, width: "114", height:"130", margin:"16",class:"previewimg"
+            .lower-box
+              .update-box
+                %label.edit-btn 編集
+              .delete-box
+                .delete-btn
+                  %span 削除
+
+
+
         .items
           = f.fields_for :images do |i|
             = i.label :image, class: "putitems__image--input" do

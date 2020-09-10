@@ -5,12 +5,11 @@ class ProductsController < ApplicationController
   def index
     @parents = Category.where(ancestry: nil)
     @products = Product.all
-    @images = Image.all
   end
 
   def new
     @product = Product.new
-    @product.images.new
+    @product.images.build()
     @product.build_category
     @product.build_brand
   end
@@ -20,11 +19,15 @@ class ProductsController < ApplicationController
       @product = Product.new(product_params)
       @product.user_id = current_user.id
     if @product.save
+      # params[:images][:image].each do |image|
+      #   @product.images.create(image: image, product_id: @product.id)
+      # end
       redirect_to root_path
     else
       render action: :new
     end
   end
+
 
   def destroy
     if @product.destroy
@@ -84,7 +87,7 @@ private
 
   def product_params
     params.require(:product).permit(:name, :description_of_item, :price,:category_id ,:commodity_condition , :shipping_charges, :days_until_shipping , :prefecture_id,
-    brand_attributes: [:id, :name],images_attributes: [:id,:image])
+    brand_attributes: [:id, :name],images_attributes: [:id, :product_id, :image])
   end
 
 
