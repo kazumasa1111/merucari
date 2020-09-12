@@ -26,7 +26,7 @@
                     %i.top-category__title
                       カテゴリーから探す
                   %ul.parents-list
-                    -@parents.each do |parent|
+                    - Category.roots.each do |parent|
                       %li
                         = link_to "#{parent.name}", category_path(parent), class: "parent-category",id: "#{parent.id}"
                   %ul.children-list
