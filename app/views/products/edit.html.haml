@@ -61,19 +61,12 @@
             
             = f.collection_select :category_id, @product.category.siblings, :id, :name,{ selected: @product.category.id} , class: "items-select"
             %p 🔻
-            -# = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---", selected: @category_parent.id}, {id: "parent"})
             
-            -# = @category_parent.name
-            
-            -# = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---", selected: @category_child.id}, {id: "child"})
-            -# = f.collection_select(:category_id, @product.category.parent.children, :id, :name, {prompt: "---", selected: @product.category.id}, {id: "grand_child"})
-            -# %p 🔻
 
 
             
         .putitems__detail--brand
-          -# .test
-          -#   = @child
+         
           .putitems__image--name
             %label.putitems__image--name-label
               ブランド
