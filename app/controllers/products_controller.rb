@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_parents, only: [:index,:new, :create, :edit, :update, :show]
   before_action :set_finds, only: [:destroy, :edit, :update, :show]
+  before_action :category_parent_array, only: [:edit]
+  before_action :show_all_instance, only: [:edit]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -36,8 +38,6 @@ class ProductsController < ApplicationController
 
   def edit
     @product.images
-    @product.build_category
-    @product.build_brand
   end
 
   def update
@@ -64,6 +64,11 @@ class ProductsController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+
+    @category_id = @product.category_id                            
+    @category_parent = Category.find(@category_id).parent.parent                    
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
   end
 
 
@@ -87,5 +92,18 @@ private
     brand_attributes: [:id, :name],images_attributes: [:id,:image])
   end
 
+  def category_parent_array
+    @category_parent_array = Category.where(ancestry: nil).each do |parent|
+    end
+  end
+
+ 
+
+  def show_all_instance
+    @category_id = @product.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
+  end
 
 end
