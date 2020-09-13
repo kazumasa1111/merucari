@@ -5,7 +5,7 @@
         = @product.name
       .itemMain__content.clearfix
         .itemMain__content__photo
-          = image_tag @image.image.url
+          = image_tag @images[0].image.url, class:"show-image"
           .itemMain__content__photo--multiple
             = image_tag asset_path('material/pict/pict-reason-01.jpg')
             = image_tag asset_path('material/pict/pict-reason-01.jpg')

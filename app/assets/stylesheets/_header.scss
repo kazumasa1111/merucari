@@ -78,7 +78,8 @@ img{
       }
       font-size: 14px;
       display: flex;
-      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: solid 1px black;
       .leftPart {
         position: relative;
         display: flex;
@@ -135,6 +136,7 @@ img{
           color: #333;
           line-height: 38px;
           padding: 0 0 0 16px;
+          padding-right: 20px;
           a {
             display: flex;
             align-items: center;

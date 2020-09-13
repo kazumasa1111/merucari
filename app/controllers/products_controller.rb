@@ -7,12 +7,11 @@ class ProductsController < ApplicationController
   def index
     @parents = Category.where(ancestry: nil)
     @products = Product.all
-    @images = Image.all
   end
 
   def new
     @product = Product.new
-    @product.images.new
+    @product.images.build()
     @product.build_category
     @product.build_brand
   end
@@ -22,11 +21,15 @@ class ProductsController < ApplicationController
       @product = Product.new(product_params)
       @product.user_id = current_user.id
     if @product.save
+      # params[:images][:image].each do |image|
+      #   @product.images.create(image: image, product_id: @product.id)
+      # end
       redirect_to root_path
     else
       render action: :new
     end
   end
+
 
   def destroy
     if @product.destroy
@@ -37,14 +40,33 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @images_first = Image.where(product_id: params[:id]).first
+    @images = Image.where(product_id: params[:id])
+    @product.build_category
+    @product.build_brand
     @product.images
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to root_path, notice: '更新されました'
+    if product_params[:images_attributes].nil?
+      flash.now[:alert] = '【画像を１枚以上入れてください】'
+      render :edit
     else
-      render action: :edit
+      exit_ids = []
+      product_params[:images_attributes].each do |a,b|
+        exit_ids << product_params[:images_attributes].dig(:"#{a}", :id).to_i
+      end
+      ids = Image.where(product_id: params[:id]).map{|image| image.id}
+      delete_db = ids - exit_ids
+      Image.where(id: delete_db).destroy_all
+      @product.touch
+
+      if @product.update(product_params)
+        redirect_to root_path, notice: '更新されました'
+      else
+        flash.now[:alert] = '更新できませんでした'
+        render action: :edit
+      end
     end
   end
 
@@ -63,6 +85,7 @@ class ProductsController < ApplicationController
 
 
   def show
+    @images = Image.where(product_id: params[:id])
     @image = Image.find(params[:id])
 
     @category_id = @product.category_id                            
@@ -89,7 +112,7 @@ private
 
   def product_params
     params.require(:product).permit(:name, :description_of_item, :price,:category_id ,:commodity_condition , :shipping_charges, :days_until_shipping , :prefecture_id,
-    brand_attributes: [:id, :name],images_attributes: [:id,:image])
+    brand_attributes: [:id, :name],images_attributes: [:id, :product_id, :image])
   end
 
   def category_parent_array

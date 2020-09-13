@@ -4,26 +4,26 @@
     = link_to "#" do
       %h3.title 新規投稿商品
 .product-lists-all
-  - @images.each do |image|
+  - @products.each do |product|
     %ul
       %li.product__lists
         .productTopic
-          = link_to product_path(image), class: "#{ image.product.status == 1 ? 'disabled' : '' }" do 
-            - if image.product.status == 1
+          = link_to product_path(product), class: "#{ product.status == 1 ? 'disabled' : '' }" do 
+            - if product.status == 1
               .items-box_photo__sold
                 .items-box_photo__sold__inner
                   SOLD
             - else
               .none-sold
             %figure.productTopic--img
-              = image_tag image.image.url
+              = image_tag product.images[0].image.url
             .productTopic--body
               %h3.name
-                = image.product.name
+                = product.name
               .details
                 %ul
                   %li
-                    = image.product.price
+                    = product.price
                     円
                   %li
                     %i.fa.fa-star.likeIcon
