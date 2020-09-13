@@ -87,12 +87,20 @@
             %p.putitems__image--name-attention
               必須
           .category-select.category-collection
-            = f.collection_select :category_id,@parents,:id, :name,{ include_blank: "選択してください", selected:"" } , class: "items-select"
+            = f.collection_select :category_id, Category.roots, :id, :name,{ selected: @product.category.root.id} , class: "items-select"
             %p 🔻
+
+            = f.collection_select :category_id, @product.category.parent.siblings, :id, :name,{ selected: @product.category.parent.id} , class: "items-select"
+            %p 🔻
+            
+            = f.collection_select :category_id, @product.category.siblings, :id, :name,{ selected: @product.category.id} , class: "items-select"
+            %p 🔻
+            
 
 
             
         .putitems__detail--brand
+         
           .putitems__image--name
             %label.putitems__image--name-label
               ブランド
