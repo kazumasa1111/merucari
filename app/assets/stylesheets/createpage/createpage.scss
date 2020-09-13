@@ -36,6 +36,7 @@
       font-size: 14px;
       line-height: 1.4em;
     }
+
     &--input{
       width: 100%;
       display: flex;
@@ -358,8 +359,81 @@ img.item-num-0{
   cursor: pointer;
 }
 
-// 商品編集ページ
+// 商品編集ページ 画像編集
 
 .previewimg{
   width: 114px;
+}
+
+#image-box-1{
+  display: flex;
+  &__top{
+    margin-right: 5px;
+    margin-top: 10px;
+  }
+}
+
+.lower-box{
+  display: flex;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.item-image{
+  width: 133px;
+  height: 150px;
+  margin: 20px 5px 40px 5px ;
+  border: solid 1px whitesmoke;
+  &__operetion{
+    display: flex;
+    justify-content: space-around;
+    background-color: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+#image-box__container{
+  margin-top: 40px;
+  width: 100%;
+}
+
+
+.preimage-input{
+  // width: 100%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // padding: 0px 4px;
+  // height: 150px;
+  // cursor: pointer;
+  // align-content: center;
+  // -webkit-box-align: center;
+  // background-color: rgb(245, 245, 245);
+  // flex-wrap: wrap;
+  // -webkit-box-pack: center;
+  // justify-content: center;
+  // position: relative;
+  // border-width: 1px;
+  // border-style: dashed;
+  // border-color: rgb(204, 204, 204);
+  // border-image: initial;
+  // transition: all 0.5s ease-out 0s;
+
+}
+
+.preimage-edit{
+  display: none;
+}
+.preimage-middle{
+  // display: flex;
+}
+.js-file_group{
+  display: flex;
+}
+.fas.fa-camera{
+  margin:8px
+}
+.image-created{
+  line-height: 36px;
 }

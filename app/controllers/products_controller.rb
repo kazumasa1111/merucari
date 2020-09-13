@@ -38,16 +38,32 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product.images
+    @images_first = Image.where(product_id: params[:id]).first
+    @images = Image.where(product_id: params[:id])
     @product.build_category
     @product.build_brand
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to root_path, notice: '更新されました'
+    if product_params[:images_attributes].nil?
+      flash.now[:alert] = '【画像を１枚以上入れてください】'
+      render :edit
     else
-      render action: :edit
+      exit_ids = []
+      product_params[:images_attributes].each do |a,b|
+        exit_ids << product_params[:images_attributes].dig(:"#{a}", :id).to_i
+      end
+      ids = Image.where(product_id: params[:id]).map{|image| image.id}
+      delete_db = ids - exit_ids
+      Image.where(id: delete_db).destroy_all
+      @product.touch
+
+      if @product.update(product_params)
+        redirect_to root_path, notice: '更新されました'
+      else
+        flash.now[:alert] = '更新できませんでした'
+        render action: :edit
+      end
     end
   end
 
@@ -66,7 +82,7 @@ class ProductsController < ApplicationController
 
 
   def show
-    @image = Image.find(params[:id])
+    @images = Image.where(product_id: params[:id])
   end
 
 
