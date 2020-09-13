@@ -42,8 +42,6 @@ class ProductsController < ApplicationController
   def edit
     @images_first = Image.where(product_id: params[:id]).first
     @images = Image.where(product_id: params[:id])
-    @product.build_category
-    @product.build_brand
     @product.images
   end
 
@@ -86,7 +84,7 @@ class ProductsController < ApplicationController
 
   def show
     @images = Image.where(product_id: params[:id])
-    @image = Image.find(params[:id])
+    # @image = Image.find(params[:id])
 
     @category_id = @product.category_id                            
     @category_parent = Category.find(@category_id).parent.parent                    
