@@ -9,7 +9,6 @@ $(function(){
       dataBox.items.add(file)
       var num = $('.item-image').length + 1 + i
       var aaa = $('.item-image').length + i
- // ①
       var image_id = Number($('#image-box-1').attr('class'))
       var append_div_count = Number($('div[id=1]').length) 
       var noreset_id = image_id + append_div_count
@@ -19,6 +18,7 @@ $(function(){
       if (num == 10){
         $('#image-box__container').css('display', 'none')
       }
+
       //読み込みが完了すると、srcにfileのURLを格納
       fileReader.onloadend = function() {
         var src = fileReader.result
@@ -35,7 +35,7 @@ $(function(){
                     </div>
                   </div>`
         const buildFileField1 = (num)=> {
-  // ③
+  
           const html = `<div  class="js-file_group" data-index="${num}" id=1>
                           <input class="js-file-edit" type="file"
                           name="product[images_attributes][${append_div_count+9}][image]"
@@ -47,12 +47,14 @@ $(function(){
         //image_box__container要素の前にhtmlを差し込む
         $('.img-label').before(html);
         $('#append-js-edit').append(buildFileField1(num));
+
+
       };
       //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変えてやる。
       $('#image-box__container').attr('class', `item-num-${num}`)
     });
   });
- // ④
+
   // 10枚登録されていた場合にボックスを消す
   $(document).ready(function(){
     var image_num = $('.item-image').length
@@ -60,7 +62,7 @@ $(function(){
       $('#image-box__container').css('display', 'none')
     }
   });
- // ⑤
+ 
   $(document).ready(function(){
     $('.js-file-edit').removeAttr('id');
     var num = $('.item-image').length - 1
@@ -77,7 +79,7 @@ $(function(){
     }
     $('#append-js-edit').append(buildFileField(num));
   });
- // ⑥
+ 
   $(document).on("click", '.item-image__operetion--edit__delete__hidden', function(){
     //削除を押されたプレビュー要素を取得
     var target_image = $(this).parent().parent();
@@ -92,7 +94,7 @@ $(function(){
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
- // ⑦
+ 
   $(document).on("click", '.item-image__operetion--edit__delete__file', function(){
     //削除を押されたプレビュー要素を取得
     var target_image = $(this).parent().parent();
@@ -108,4 +110,25 @@ $(function(){
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
 
+
+  // 登録済み画像の編集 
+
+  // $(".item-image__operetion--edit").on('click',function(){
+    // console.log(this)
+    // let val = $(this).parent().parent().attr('id');
+    // console.log(val);
+    // $(`input[value="${val}"]`).trigger('click');
+  $(`.js-file-edit`).on('change',function(e){
+    let img_val = $(this).attr('value');
+    //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
+    var fileReader = new FileReader();
+    //DataTransferオブジェクトに対して、fileを追加
+    fileReader.readAsDataURL(e.target.files[0]);
+
+    //読み込みが完了すると、srcにfileのURLを格納
+    fileReader.onloadend = function(e) {
+      $(`#img${img_val}`).attr('src', e.target.result);  
+    }
+  });
+  // });
 });

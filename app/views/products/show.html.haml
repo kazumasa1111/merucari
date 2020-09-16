@@ -7,9 +7,10 @@
         .itemMain__content__photo
           = image_tag @images[0].image.url, class:"show-image"
           .itemMain__content__photo--multiple
-            = image_tag asset_path('material/pict/pict-reason-01.jpg')
-            = image_tag asset_path('material/pict/pict-reason-01.jpg')
-            = image_tag asset_path('material/pict/pict-reason-01.jpg')
+            = image_tag @images[1].image.url
+            = image_tag @images[2].image.url
+          -# - if @images[3].image.url.present?
+          -#   = image_tag @images[3].image.url
         %table.category
           %tbody
             %tr

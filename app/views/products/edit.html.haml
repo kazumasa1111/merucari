@@ -16,13 +16,12 @@
         #image-box-1{class:"#{@images.last.id}"}
           - @images.each do |img|
             .item-image{id:img.id}
-              = image_tag(img.image.url,{width:"188",height:"150"})
+              = image_tag img.image.url, width:"188",height:"150",class:"createimg",id:"img#{img.id}"
               .item-image__operetion
                 .item-image__operetion--edit__delete__hidden 削除
-                = f.label :image do
-                  %p 編集
-                  = f.file_field :image, type:"file", name: "product[images_attributes][][image]", class: "preimage-edit" 
-                  
+                .item-image__operetion--edit 編集
+                -# %label{for: "#img-file#{img.id}"} 編集
+
         .preimage-middle
           %label.img-label{for: "img-file"} 
             #image-box__container{class:"item-num-#{@images.length}"}
@@ -30,19 +29,9 @@
                 = f.fields_for :images do |image|
                   = image.label :image, class: "preimage-input" do
                     .js-file_group{"data-index" => "#{image.index}"}
-                      = image.file_field :image, type: 'file', value:"#{image.object.id}",style: "",  id:"img-file", class:'js-file-edit',name: "product[images_attributes][#{@product.images.count}][image]", data:{index:""} 
+                      = image.file_field :image, type: 'file', value:"#{image.object.id}",style: "",  id:"img-file", class:"js-file-edit",name: "product[images_attributes][#{image.index}][image]", data:{index:""} 
                       %i.fas.fa-camera
                       %p.image-created 登録済
-        -# #preview-box
-        -#   - @product.images.each do |i|
-        -#     #preview-box__top{class:"#{@images.last.id}"}
-        -#       .upper-box
-        -#         = image_tag i.image.url, width: "114", height:"130", margin:"16",class:"previewimg"
-        -#       .lower-box
-        -#         .update-box
-        -#           %label.edit-btn 編集
-        -#         .delete-box
-        -#           %span 削除
 
 
 
