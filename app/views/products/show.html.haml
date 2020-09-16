@@ -7,8 +7,9 @@
         .itemMain__content__photo
           = image_tag @images[0].image.url, class:"show-image"
           .itemMain__content__photo--multiple
-            = image_tag @images[1].image.url
-            = image_tag @images[2].image.url
+            - @images.each do |img|
+              = image_tag img.image.url
+            -# = image_tag @images[2].image.url
           -# - if @images[3].image.url.present?
           -#   = image_tag @images[3].image.url
         %table.category
